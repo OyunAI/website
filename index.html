@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OyunAI — Applied intelligence. Operated.</title>
+<meta name="description" content="OyunAI Engineering Pipeline нь танай backlog-ийг хүн шалгахад бэлэн pull request болгоно. Merge хийх товчлуур танай багийн гарт үлдэнэ.">
+<link rel="canonical" href="https://oyunai.dev/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://oyunai.dev/">
+<meta property="og:title" content="OyunAI — Applied intelligence. Operated.">
+<meta property="og:description" content="Танай backlog хүн шалгахад бэлэн pull request болж эргэж ирнэ. Merge хийх товчлуур танайд үлдэнэ.">
+<meta property="og:image" content="https://oyunai.dev/assets/og.png">
+<meta property="og:locale" content="mn_MN">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" href="assets/oyunai-favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== OyunAI brand system — Brand-Strategy.md §5 =====
+   Ink #0E1A33 · Midnight #16264A · Signal Gold #E6B450
+   Circuit Teal #1FA98F · Ember #C56A35 · Paper #FBFAF7 · Mist #EDF1F7
+   Display: Space Grotesk (Latin) → Manrope (Cyrillic, per-glyph fallback)
+   Body: Inter                                                            */
+
+:root{
+  --ink:#0E1A33; --midnight:#16264A; --gold:#E6B450;
+  --teal:#1FA98F; --ember:#C56A35;
+  --paper:#FBFAF7; --mist:#EDF1F7; --slate:#2A3342; --muted:#5C6675;
+  --line:#DFE4EC;
+  --display:"Space Grotesk","Manrope",-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --body:"Inter",-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --wrap:1120px;
+  --pad:clamp(20px,5vw,56px);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--paper);color:var(--slate);
+  font-family:var(--body);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;
+}
+img,svg{max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--pad)}
+
+h1,h2,h3,.disp{font-family:var(--display);color:var(--ink);letter-spacing:-.02em;font-weight:700;margin:0}
+h2{font-size:clamp(26px,3.4vw,36px);line-height:1.18}
+h3{font-size:19px;line-height:1.3;letter-spacing:-.01em}
+p{margin:0}
+.lede{font-size:clamp(17px,1.8vw,19px);color:#41495a;line-height:1.55}
+strong{color:var(--ink);font-weight:600}
+.tnum{font-variant-numeric:tabular-nums}
+.mono{font:inherit}
+.nb{white-space:nowrap}
+
+/* section heads: short gold rule, per §5.4 — no eyebrow labels */
+.sechead{position:relative;padding-top:26px;margin-bottom:28px}
+.sechead::before{content:"";position:absolute;top:0;left:0;width:56px;height:4px;border-radius:3px;background:var(--gold)}
+.sechead p{margin-top:12px;max-width:60ch}
+section{padding-block:clamp(56px,8vw,92px)}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-block;font-family:var(--display);font-weight:600;font-size:16px;
+  padding:13px 24px;border-radius:6px;text-decoration:none;border:1.5px solid transparent;
+  transition:background .15s ease,border-color .15s ease,color .15s ease;
+}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:#f0c469}
+.btn-ghost{border-color:rgba(255,255,255,.32);color:#fff}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-ink:hover{background:var(--midnight)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+
+/* ---------- header ---------- */
+.site-head{
+  position:sticky;top:0;z-index:20;background:var(--ink);
+  border-bottom:1px solid rgba(255,255,255,.09);
+}
+.site-head .wrap{display:flex;align-items:center;gap:24px;height:66px}
+.site-head img{height:26px;width:auto;display:block}
+.site-head nav{margin-left:auto;display:flex;align-items:center;gap:28px}
+.site-head nav a{color:#c3d2e6;text-decoration:none;font-size:15px;font-weight:500}
+.site-head nav a:hover{color:#fff}
+.site-head .btn{padding:9px 18px;font-size:15px}
+.site-head nav a.btn-gold{color:var(--ink)}
+@media (max-width:760px){.site-head nav a:not(.btn){display:none}}
+
+/* ---------- hero ---------- */
+.hero{
+  color:#eaf1fa;position:relative;overflow:hidden;padding-block:clamp(52px,8vw,86px);
+  background:
+    radial-gradient(760px 480px at 84% 12%,rgba(230,180,80,.20) 0%,rgba(230,180,80,0) 62%),
+    radial-gradient(620px 460px at 6% 100%,rgba(31,169,143,.15) 0%,rgba(31,169,143,0) 58%),
+    linear-gradient(140deg,#0B1730 0%,#0E1A33 46%,#16264A 100%);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(820px 560px at 80% 18%,#000 0%,transparent 74%);
+          mask-image:radial-gradient(820px 560px at 80% 18%,#000 0%,transparent 74%);
+}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,760px);gap:clamp(32px,5vw,64px);align-items:center}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:36px}}
+
+.tagline{font-family:var(--display);font-size:14px;font-weight:600;color:var(--gold);letter-spacing:.01em;margin-bottom:20px}
+.hero h1{
+  color:#fff;font-size:clamp(32px,4.9vw,52px);line-height:1.1;letter-spacing:-.03em;
+  max-width:15ch;
+}
+.hero .lede{color:#b9cbe2;margin-top:22px;max-width:44ch}
+.hero .gate{margin-top:14px;color:#8fa6c2;font-size:16px;max-width:44ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+
+/* ---------- ledger (hero artifact) ---------- */
+.ledger{
+  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);
+  border-radius:10px;padding:24px 26px 22px;backdrop-filter:blur(2px);
+}
+.ledger-cap{font-size:13.5px;color:#8fa6c2;margin-bottom:18px;font-family:var(--display);font-weight:500}
+.ledger-cap b{color:#dce7f4;font-weight:600}
+.lrow{
+  display:flex;align-items:baseline;gap:14px;padding:11px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.lrow .lbl{flex:1;font-size:15.5px;color:#cbd9ea;line-height:1.35}
+.lrow .val{font-family:var(--display);font-weight:700;font-size:23px;color:#fff;letter-spacing:-.02em}
+.lrow .pct{font-size:13px;color:#8fa6c2;min-width:42px;text-align:right}
+.lrow.key .val{color:var(--gold)}
+.lrow.key .lbl{color:#fff}
+.ledger .lrow:nth-child(5){border-bottom:none}
+.lrow .step{color:#6f86a4;padding-right:2px}
+.stop{
+  margin-top:18px;padding:14px 16px;border-radius:8px;
+  background:rgba(31,169,143,.10);border-left:3px solid var(--teal);
+}
+.stop .t{font-family:var(--display);font-weight:600;font-size:14.5px;color:#7fe0c8;margin-bottom:4px}
+.stop .d{font-size:14.5px;color:#bcd0e4;line-height:1.45}
+
+/* one orchestrated entrance: the queue draining */
+@media (prefers-reduced-motion:no-preference){
+  .ledger .lrow,.ledger .stop{animation:rise .5s cubic-bezier(.2,.7,.3,1) backwards}
+  .ledger .lrow:nth-child(2){animation-delay:.10s}
+  .ledger .lrow:nth-child(3){animation-delay:.20s}
+  .ledger .lrow:nth-child(4){animation-delay:.30s}
+  .ledger .lrow:nth-child(5){animation-delay:.40s}
+  .ledger .stop{animation-delay:.56s}
+  @keyframes rise{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+}
+
+/* ---------- proof band ---------- */
+.proof{background:var(--ink);color:#dce7f4;padding-block:clamp(34px,5vw,46px)}
+.proof .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,3vw,36px)}
+@media (max-width:820px){.proof .grid{grid-template-columns:repeat(2,1fr);gap:26px}}
+.stat b{display:block;white-space:nowrap;font-family:var(--display);font-weight:700;font-size:clamp(30px,3.8vw,40px);color:#fff;line-height:1.05;letter-spacing:-.03em}
+.stat span{display:block;margin-top:7px;font-size:14.5px;color:#93a9c6;line-height:1.4}
+.proof .src{margin-top:26px;font-size:13.5px;color:#6f86a4;max-width:74ch}
+
+/* ---------- ships list ---------- */
+.ships{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(28px,5vw,56px)}
+@media (max-width:760px){.ships{grid-template-columns:1fr}}
+.ship{padding:20px 0;border-top:1px solid var(--line)}
+.ship h3{margin-bottom:6px}
+.ship p{font-size:15.5px;color:var(--muted);line-height:1.5}
+
+/* ---------- tiers table ---------- */
+.tiers{width:100%;border-collapse:collapse;margin-top:38px;font-size:15.5px}
+.tiers th{
+  font-family:var(--display);font-weight:600;font-size:14px;color:#fff;background:var(--ink);
+  text-align:left;padding:11px 16px;
+}
+.tiers th:first-child{border-radius:6px 0 0 0}
+.tiers th:last-child{border-radius:0 6px 0 0}
+.tiers td{padding:15px 16px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5}
+.tiers td:first-child{font-family:var(--display);font-weight:600;color:var(--ink);white-space:nowrap}
+.tiers tr.reco td{background:#F3F8F6}
+.tiers tr.reco td:first-child{box-shadow:inset 3px 0 0 var(--teal)}
+.mark{display:inline-block;font-family:var(--display);font-size:11.5px;font-weight:700;color:#0d6d5b;background:#d8efe8;border-radius:3px;padding:2px 7px;margin-left:8px;vertical-align:2px;letter-spacing:.02em}
+@media (max-width:720px){
+  .tiers,.tiers tbody,.tiers tr,.tiers td{display:block;width:100%}
+  .tiers thead{display:none}
+  .tiers tr{border:1px solid var(--line);border-radius:8px;margin-bottom:14px;padding:6px 4px;background:#fff}
+  .tiers td{border-bottom:none;padding:8px 14px}
+  .tiers td:first-child{font-size:17px;padding-top:12px}
+  .tiers td[data-l]::before{content:attr(data-l);display:block;font-size:12.5px;color:var(--muted);margin-bottom:3px;font-family:var(--display);font-weight:600}
+  .tiers tr.reco td:first-child{box-shadow:none}
+}
+
+/* ---------- Kandi ---------- */
+.kandi{background:var(--ink);color:#dce7f4}
+.kandi h2,.kandi h3{color:#fff}
+.kandi .sechead::before{background:var(--gold)}
+.kandi .sechead p{color:#a8bcd6}
+.kandi .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,60px);align-items:start}
+@media (max-width:880px){.kandi .cols{grid-template-columns:1fr;gap:34px}}
+.kandi dl{margin:0}
+.kandi dt{font-family:var(--display);font-weight:600;font-size:16.5px;color:#fff;margin-top:22px}
+.kandi dt:first-child{margin-top:0}
+.kandi dd{margin:5px 0 0;color:#a8bcd6;font-size:15.5px;line-height:1.5;max-width:46ch}
+.avail{
+  display:inline-block;margin-top:30px;font-size:14.5px;color:var(--gold);
+  border:1px solid rgba(230,180,80,.35);border-radius:5px;padding:7px 14px;
+}
+
+/* thread */
+.thread{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:22px 22px 24px}
+.thread .ch{font-family:var(--display);font-size:13.5px;color:#8fa6c2;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.09);margin-bottom:16px}
+.msg{display:flex;gap:12px;padding:11px 0}
+.who{
+  flex:0 0 30px;height:30px;border-radius:6px;display:grid;place-items:center;
+  font-family:var(--display);font-weight:700;font-size:12.5px;
+}
+.who.me{background:#33405a;color:#cfe0f2}
+.who.k{background:var(--gold);color:var(--ink)}
+.msg .body{flex:1;min-width:0}
+.msg .nm{font-family:var(--display);font-weight:600;font-size:13.5px;color:#dce7f4;margin-bottom:2px}
+.msg .tx{font-size:15.5px;line-height:1.5;color:#b9cbe2}
+.msg .tx em{color:#7fe0c8;font-style:normal}
+.msg.hold .tx{color:#e8dcc4}
+
+/* ---------- guardrails ---------- */
+.guards{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(28px,5vw,56px)}
+@media (max-width:760px){.guards{grid-template-columns:1fr}}
+.guard{padding:22px 0;border-top:2px solid var(--ink)}
+.guard:nth-child(n+3){border-top-color:var(--line)}
+@media (max-width:760px){.guard:nth-child(2){border-top-color:var(--line)}}
+.guard h3{margin-bottom:6px}
+.guard p{font-size:15.5px;color:var(--muted);line-height:1.5}
+
+/* ---------- start / CTA ---------- */
+.start .box{
+  background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:clamp(26px,4vw,42px);display:grid;grid-template-columns:1.15fr .85fr;
+  gap:clamp(28px,4vw,52px);align-items:start;
+}
+@media (max-width:820px){.start .box{grid-template-columns:1fr;gap:30px}}
+.price{font-family:var(--display);font-weight:700;font-size:clamp(34px,4.6vw,46px);color:var(--ink);letter-spacing:-.03em;line-height:1}
+.price small{display:block;font-size:15px;font-weight:500;color:var(--muted);letter-spacing:0;margin-top:9px;font-family:var(--body)}
+.incl{margin:0;padding:0;list-style:none}
+.incl li{padding:10px 0 10px 26px;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.5;position:relative}
+.incl li:last-child{border-bottom:none}
+.incl li::before{content:"";position:absolute;left:2px;top:19px;width:9px;height:9px;border-radius:50%;background:var(--gold)}
+.start .after{margin-top:22px;font-size:15.5px;color:var(--muted);line-height:1.5;max-width:52ch}
+.start .btn{margin-top:24px}
+.contact{margin-top:16px;font-size:15.5px;color:var(--muted)}
+.contact a{color:var(--ink);font-weight:600}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:#8fa6c2;padding-block:34px;font-size:14.5px}
+footer .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+footer img{height:18px;width:auto;opacity:.9}
+footer .legal{margin-left:auto;text-align:right;line-height:1.55}
+@media (max-width:640px){footer .legal{margin-left:0;text-align:left}}
+footer a{color:#c3d2e6}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a href="#top" aria-label="OyunAI"><img src="assets/oyunai-logo-horizontal-white.svg" alt="OyunAI"></a>
+    <nav>
+      <a href="#pipeline">Engineering Pipeline</a>
+      <a href="#kandi">Kandi</a>
+      <a href="#start">Үнэ</a>
+      <a class="btn btn-gold" href="mailto:hello@oyunai.dev?subject=OyunAI%20%E2%80%94%20%D1%82%D1%83%D1%80%D1%88%D0%B8%D0%BB%D1%82%D1%8B%D0%BD%20%D1%82%D0%B0%D0%BB%D0%B0%D0%B0%D1%80">Холбоо барих</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="tagline">Applied intelligence. Operated.</p>
+      <h1>Танай backlog <span class="nb">pull request</span> болж эргэж ирнэ.</h1>
+      <p class="lede">OyunAI Engineering Pipeline танай тикетүүдийг эрэмбэлж, төлөвлөж, код бичээд танай repo дээр pull request нээнэ. Тасралтгүй.</p>
+      <p class="gate">Merge хийх товчлуур танай багийн гарт үлдэнэ. Хариуцлагыг нэрлэсэн хүн хүлээнэ.</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="#start">35 хоногийн туршилт</a>
+        <a class="btn btn-ghost" href="#pipeline">Хэрхэн ажилладаг</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ PIPELINE ============ -->
+<section id="pipeline">
+  <div class="wrap">
+    <div class="sechead">
+      <h2>OyunAI Engineering Pipeline</h2>
+      <p class="lede">Хөгжүүлэгч нэмж авахгүйгээр backlog-оо урагшлуулна. Бид pipeline-ыг ажиллуулж, танай кодод тааруулж, эвдэрсэн үед нь хариуцна.</p>
+    </div>
+
+    <div class="ships">
+      <div class="ship">
+        <h3>Танай tracker дээр төлөвлөгөө</h3>
+        <p>Шинэ тикет ирэхэд эрэмбэлж, хэрэгжүүлэх төлөвлөгөөг тикет дээр нь бичнэ. Ойлгомжгүй тикетийг таамаглахгүй — тодруулга хүсээд хүлээнэ.</p>
+      </div>
+      <div class="ship">
+        <h3>Танай repo дээр pull request</h3>
+        <p>Код танай конвенцоор бичигдэж, танай тестийг давсан байдлаар PR болж ирнэ. Юуг өөрчилсөн, юуг шалгасныг PR дээрээ бичнэ.</p>
+      </div>
+      <div class="ship">
+        <h3>Долоо хоног бүрийн pipeline review</h3>
+        <p>Sprint-ийн тайлан, ботын үйлдлийн лог хоёрыг уншиж, pipeline-ыг танай багийн ажлын хэвэнд ойртуулна. Энэ бол үйлчилгээний гол хөдөлгүүр.</p>
+      </div>
+      <div class="ship">
+        <h3>Сар бүрийн гүйцэтгэлийн тайлан</h3>
+        <p>Хэдэн тикет орсон, хэдэн PR нээсэн, хэд нь merge болсон, ямар хугацаанд. Тоогоор, тайлбаргүйгээр.</p>
+      </div>
+    </div>
+
+    <table class="tiers">
+      <thead>
+        <tr><th>Түвшин</th><th>Юу хийх вэ</th><th>Хүний хяналт</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Assisted</td>
+          <td data-l="Юу хийх вэ">Тикетийг эрэмбэлж, хэрэгжүүлэх дэлгэрэнгүй төлөвлөгөө бичнэ. Кодыг танай баг бичнэ.</td>
+          <td data-l="Хүний хяналт">Танай баг хэрэгжүүлж, merge хийж, deploy хийнэ.</td>
+        </tr>
+        <tr class="reco">
+          <td>Managed Pipeline<span class="mark">Санал болгож буй</span></td>
+          <td data-l="Юу хийх вэ">Бүтэн гогцоо: эрэмбэлж, төлөвлөж, <b>код бичээд pull request нээнэ</b>. Бид ажиллуулж, тааруулна.</td>
+          <td data-l="Хүний хяналт">Танай баг шалгаж, merge хийж, deploy хийнэ.</td>
+        </tr>
+        <tr>
+          <td>Governed Autonomy</td>
+          <td data-l="Юу хийх вэ">Production-ы дохиог тикет болгож, засвар хүртэл автоматаар авчирна — хатуу хязгаарын дотор.</td>
+          <td data-l="Хүний хяналт">Бодлогыг та тогтооно. Эрсдэлтэй өөрчлөлт үргэлж хүн дээр зогсоно.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ KANDI ============ -->
+<section class="kandi" id="kandi">
+  <div class="wrap">
+    <div class="sechead">
+      <h2>Kandi — гүйцэтгэх захирлын хувийн туслах</h2>
+      <p class="lede">Танай Slack дотор ажиллана. Танай системүүдэд эрхтэй холбогдож, ажлыг бэлтгэж өгнө. Хүнд хүрэх бүх зүйлийг та л батална.</p>
+    </div>
+
+    <div class="cols">
+      <div>
+        <dl>
+          <dt>Танай системүүдтэй холбогдоно</dt>
+          <dd>Имэйл, Jira, GitHub, өгөгдлийн сан, сервер. Асуултаа Slack-д бичихэд Kandi хариуг эх сурвалжаас нь татаж ирнэ.</dd>
+
+          <dt>Илгээхийн өмнө үргэлж асууна</dt>
+          <dd>Нэхэмжлэх, гэрээ, имэйл — Kandi бэлтгэнэ, та уншаад шийднэ. Өөр хүнд хүрэх юмыг Kandi өөрөө илгээхгүй.</dd>
+
+          <dt>Role бүр өөрийн эрхтэй</dt>
+          <dd>Хэн юунд хүрэхийг та тогтооно. Тайлангийн role зөвхөн өгөгдлийн санг уншина, кодод хүрэхгүй.</dd>
+
+          <dt>Асуухаа хүлээхгүй</dt>
+          <dd>Серверийн нөөц дүүрэх, ажиллагаа зогсох зэрэг зүйлийг өөрөө хэлнэ.</dd>
+        </dl>
+        <p class="avail">Эхний хэрэглэгчдээ сонгож байна — сард 3 захирал.</p>
+      </div>
+
+      <div class="thread" aria-label="Kandi-тай харилцах жишээ">
+        <p class="ch">#oyunai-pa</p>
+        <div class="msg">
+          <span class="who me" aria-hidden="true">ЭГ</span>
+          <div class="body">
+            <p class="nm">Эрхэмбаяр</p>
+            <p class="tx">9-р сарын нэхэмжлэхийг бэлтгээд өгөөч.</p>
+          </div>
+        </div>
+        <div class="msg hold">
+          <span class="who k" aria-hidden="true">K</span>
+          <div class="body">
+            <p class="nm">Kandi</p>
+            <p class="tx">Бэлэн. Дүн, хугацаа, хавсралтыг шалгаад хэлээрэй — <em>таны зөвшөөрөлгүйгээр илгээхгүй.</em></p>
+          </div>
+        </div>
+        <div class="msg">
+          <span class="who me" aria-hidden="true">ЭГ</span>
+          <div class="body">
+            <p class="nm">Эрхэмбаяр</p>
+            <p class="tx">API сервер дээр диск хэд дүүрсэн бэ?</p>
+          </div>
+        </div>
+        <div class="msg">
+          <span class="who k" aria-hidden="true">K</span>
+          <div class="body">
+            <p class="nm">Kandi</p>
+            <p class="tx">Одоогоор 61%. Өнгөрсөн долоо хоногт 84% хүрсэн тул swap нэмсэн.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GUARDRAILS ============ -->
+<section id="guards">
+  <div class="wrap">
+    <div class="sechead">
+      <h2>Хяналт бол шинж чанар, нэмэлт биш</h2>
+      <p class="lede">Автоматжуулалт хаана зогсохыг урьдчилан бичиж, танаар батлуулна. Дараа нь л ажиллуулна.</p>
+    </div>
+    <div class="guards">
+      <div class="guard">
+        <h3>Merge хийх товчлуур танайд</h3>
+        <p>Танай үндсэн салбарт хүн зөвшөөрөхгүйгээр код орохгүй.</p>
+      </div>
+      <div class="guard">
+        <h3>Эрсдэлээр нь ангилна</h3>
+        <p>Өгөгдлийн сангийн бүтэц, төлбөр, нэвтрэлт, өгөгдлийн шилжилт — хэчнээн жижиг харагдсан ч үргэлж хүн дээр зогсоно.</p>
+      </div>
+      <div class="guard">
+        <h3>Бүх үйлдэл ул мөр үлдээнэ</h3>
+        <p>Аль тикетэд юу хийснийг танай tracker болон git түүх дээр бүтнээр нь харна. Тайлангийн тоо энэ хоёроос гарна.</p>
+      </div>
+      <div class="guard">
+        <h3>Зогсоох товчлуур</h3>
+        <p>Хүссэн үедээ pipeline-ыг зогсооно. Шалтгаан хэлэх шаардлагагүй, зөвшөөрөл хүлээх шаардлагагүй.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ START ============ -->
+<section class="start" id="start">
+  <div class="wrap">
+    <div class="sechead">
+      <h2>35 хоногийн туршилтаас эхэлнэ</h2>
+      <p class="lede">Демо биш. Танай өөрийн код дээр, танай өөрийн backlog-оос гарсан үр дүнг харна.</p>
+    </div>
+
+    <div class="box">
+      <div>
+        <ul class="incl">
+          <li>Танай нэг repo болон tracker дээр pipeline-ыг холбож, кодод чинь тааруулна</li>
+          <li>Танай бодит backlog-оос 15–25 тикетийг pipeline-аар өнгөрүүлнэ</li>
+          <li>Хязгаарын бодлого — pipeline юунд хүрч болох, юунд хүрч болохгүйг бичиж, танаар батлуулна</li>
+          <li>Туршилтын тайлан: хэдэн тикет, хэдэн PR, хүлээн авсан хувь, хугацаа</li>
+        </ul>
+        <p class="after">35 дахь өдөр үр дүнг хамтдаа үнэлнэ. Үргэлжлүүлэх үүрэг танд байхгүй. Үргэлжлүүлбэл тохируулгын төлбөр нэмж авахгүй.</p>
+      </div>
+      <div>
+        <p class="price">₮4,000,000<small>Тогтмол үнэ · 35 хоног · 50% эхлэхэд, 50% тайлан хүлээлгэн өгөхөд</small></p>
+        <a class="btn btn-ink" href="mailto:hello@oyunai.dev?subject=OyunAI%20%E2%80%94%2035%20%D1%85%D0%BE%D0%BD%D0%BE%D0%B3%D0%B8%D0%B9%D0%BD%20%D1%82%D1%83%D1%80%D1%88%D0%B8%D0%BB%D1%82&amp;body=%D0%A1%D0%B0%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%B9%D0%BD%D0%B0%20%D1%83%D1%83%2C%0A%0A%D0%9A%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%3A%0ARepo%20%2F%20%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%3A%0A%D0%9E%D0%B4%D0%BE%D0%BE%20%D1%85%D1%8D%D1%80%D1%8D%D0%B3%D0%BB%D1%8D%D0%B6%20%D0%B1%D0%B0%D0%B9%D0%B3%D0%B0%D0%B0%20tracker%3A%0A%D0%AD%D1%85%D0%BB%D1%8D%D1%85%D0%B8%D0%B9%D0%B3%20%D1%85%D2%AF%D1%81%D1%81%D1%8D%D0%BD%20%D1%85%D1%83%D0%B3%D0%B0%D1%86%D0%B0%D0%B0%3A%0A">hello@oyunai.dev руу бичих</a>
+        <p class="contact">Эсвэл шууд бичээрэй: <a href="mailto:hello@oyunai.dev">hello@oyunai.dev</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/oyunai-logo-horizontal-white.svg" alt="OyunAI Labs">
+    <a href="mailto:hello@oyunai.dev">hello@oyunai.dev</a>
+    <p class="legal">Оюун Эй Ай Лабс ХХК<br>Улаанбаатар, Монгол</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OyunAI — Applied intelligence. Operated.</title>
-<meta name="description" content="OyunAI Engineering Pipeline танай backlog-ийг шалгахад бэлэн pull request болгож өгнө. Merge хийх эсэхийг танай баг өөрөө шийднэ.">
+<meta name="description" content="OyunAI Labs танай сервер, хөгжүүлэлт, удирдлагын мэдээллийг AI-д тулгуурласан үйлчилгээгээр хариуцна. Шийдвэр танд үлдэнэ.">
 <link rel="canonical" href="https://oyunai.dev/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://oyunai.dev/">
 <meta property="og:title" content="OyunAI — Applied intelligence. Operated.">
-<meta property="og:description" content="Танай backlog шалгахад бэлэн pull request болж буцаж ирнэ. Merge хийх эсэхийг танай баг өөрөө шийднэ.">
+<meta property="og:description" content="Сервер хянахаас эхлээд код бичих, удирдлагын тайлан бэлтгэх хүртэл. Системийг тань бид ажиллуулна, шийдвэр танд үлдэнэ.">
 <meta property="og:image" content="https://oyunai.dev/assets/og.png">
 <meta property="og:locale" content="mn_MN">
 <meta name="twitter:card" content="summary_large_image">
@@ -153,9 +153,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--c-accent);outline-o
 .tagline{font-family:var(--display);font-size:14px;font-weight:600;color:var(--c-mark);letter-spacing:.01em;margin-bottom:20px}
 .hero h1{
   color:#fff;font-size:clamp(32px,4.9vw,52px);line-height:1.1;letter-spacing:-.03em;
-  max-width:15ch;
+  max-width:17ch;
 }
-.hero .lede{color:var(--c-od-2);margin-top:22px;max-width:44ch}
+.hero .lede{color:var(--c-od-2);margin-top:22px;max-width:52ch}
 .hero .gate{margin-top:14px;color:var(--c-od-3);font-size:16px;max-width:44ch}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
 
@@ -165,6 +165,25 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--c-accent);outline-o
 .ship{padding:20px 0;border-top:1px solid var(--c-line)}
 .ship h3{margin-bottom:6px}
 .ship p{font-size:15.5px;color:var(--c-muted);line-height:1.5}
+
+/* ---------- services overview ---------- */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:900px){.svc{grid-template-columns:1fr}}
+.card{
+  display:flex;flex-direction:column;gap:10px;padding:24px 24px 22px;background:var(--c-surface);
+  border:1px solid var(--c-line);border-radius:10px;text-decoration:none;
+  transition:border-color .15s ease,box-shadow .15s ease;
+}
+.card:hover{border-color:var(--c-accent);box-shadow:0 6px 22px rgba(16,21,74,.08)}
+.card .step{font-family:var(--display);font-weight:700;font-size:22px;line-height:1;color:var(--c-accent)}
+.card p{font-size:15.5px;color:var(--c-muted);line-height:1.5;flex:1}
+.card .more{font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--c-heading)}
+.path{margin-top:22px;font-size:15.5px;color:var(--c-muted);max-width:70ch}
+section.alt{background:var(--c-mist)}
+.keep{
+  margin-top:30px;padding:16px 20px;background:var(--c-surface);border-left:3px solid var(--c-positive);
+  border-radius:0 8px 8px 0;font-size:15.5px;line-height:1.55;max-width:80ch;
+}
 
 /* ---------- tiers table ---------- */
 .tiers{width:100%;border-collapse:collapse;margin-top:38px;font-size:15.5px}
@@ -282,7 +301,8 @@ footer a{color:var(--c-od-2)}
   <div class="wrap">
     <a href="#top" aria-label="OyunAI"><svg class="logo" viewBox="0 0 487.72 116.10" role="img" aria-label="OyunAI"><use href="#oyunai-logo"/></svg></a>
     <nav>
-      <a href="#pipeline">Engineering Pipeline</a>
+      <a href="#infra">Infrastructure</a>
+      <a href="#pipeline">Pipeline</a>
       <a href="#pa">Хувийн туслах</a>
       <a href="#start">Үнэ</a>
       <a class="btn btn-accent" href="mailto:hello@oyunai.dev?subject=OyunAI%20%E2%80%94%20%D1%82%D1%83%D1%80%D1%88%D0%B8%D0%BB%D1%82%D1%8B%D0%BD%20%D1%82%D0%B0%D0%BB%D0%B0%D0%B0%D1%80">Холбоо барих</a>
@@ -295,17 +315,110 @@ footer a{color:var(--c-od-2)}
   <div class="wrap">
     <div>
       <p class="tagline">Applied intelligence. Operated.</p>
-      <h1>Танай backlog <span class="nb">pull request</span> болж буцаж ирнэ.</h1>
-      <p class="lede">OyunAI Engineering Pipeline танай тикетийг эрэмбэлж, төлөвлөж, кодыг нь бичээд танай repo дээр pull request нээнэ. Амралтын өдөр ч зогсохгүй.</p>
-      <p class="gate">Merge хийх эсэхийг танай баг өөрөө шийднэ. Ажил бүрийг нэртэй хүн хариуцна.</p>
+      <h1>Системийг тань бид ажиллуулна. Шийдвэр танд үлдэнэ.</h1>
+      <p class="lede">Сервер хянахаас эхлээд код бичих, удирдлагын тайлан бэлтгэх хүртэл — AI-д тулгуурласан гурван үйлчилгээгээр танай технологийн ажлыг хариуцна.</p>
+      <p class="gate">Ажил бүрийг нэртэй хүн хариуцна. Эрсдэлтэй алхам бүрийг танай хүн батална.</p>
       <div class="hero-cta">
         <a class="btn btn-accent" href="#start">35 хоногийн туршилт</a>
-        <a class="btn btn-ghost" href="#pipeline">Хэрхэн ажилладаг</a>
+        <a class="btn btn-ghost" href="#services">Үйлчилгээнүүд</a>
       </div>
     </div>
 
   </div>
 </div>
+
+<!-- ============ SERVICES ============ -->
+<section id="services">
+  <div class="wrap">
+    <div class="sechead">
+      <h2>Гурван үйлчилгээ, нэг зам</h2>
+      <p class="lede">Нэгээс нь эхэлнэ. Хэрэгцээ гарахаар дараагийнх руу шилжинэ.</p>
+    </div>
+    <div class="svc">
+      <a class="card" href="#infra">
+        <span class="step">01</span>
+        <h3>Managed Infrastructure</h3>
+        <p>Сервер, өгөгдлийн сангаа өөрсдөө байршуулдаг ч DevOps инженергүй компаниудад. Бид өдөр шөнөгүй хянаж, засвар үйлчилгээг нь хийнэ.</p>
+        <span class="more">Дэлгэрэнгүй →</span>
+      </a>
+      <a class="card" href="#pipeline">
+        <span class="step">02</span>
+        <h3>Engineering Pipeline</h3>
+        <p>Backlog нь хөгжүүлэгчдийнхээ хурдаас түрүүлж өссөн багуудад. Тикетийг тань шалгахад бэлэн pull request болгоно.</p>
+        <span class="more">Дэлгэрэнгүй →</span>
+      </a>
+      <a class="card" href="#pa">
+        <span class="step">03</span>
+        <h3>Хувийн туслах (PA)<span class="mark">Эхний хэрэглэгчид</span></h3>
+        <p>Мэдээллээ олон системээс цуглуулж цаг алддаг удирдлагуудад. Тайлан, хариулт, анхааруулгыг Slack-д тань хүргэнэ.</p>
+        <span class="more">Дэлгэрэнгүй →</span>
+      </a>
+    </div>
+    <p class="path">Эхлээд систем тань тогтвортой ажиллана. Дараа нь хөгжүүлэлт хурдсана. Эцэст нь удирдлагын мэдээлэл өөрөө ирдэг болно.</p>
+  </div>
+</section>
+
+<!-- ============ INFRA ============ -->
+<section class="alt" id="infra">
+  <div class="wrap">
+    <div class="sechead">
+      <h2>OyunAI Managed Infrastructure</h2>
+      <p class="lede">Сервер, сайт, өгөгдлийн сангаа өөрсдөө байршуулдаг ч тусгай DevOps инженергүй бол бид өдөр шөнөгүй хянаж, асуудлыг эрт барина.</p>
+    </div>
+
+    <div class="ships">
+      <div class="ship">
+        <h3>24/7 хяналт, дохиолол</h3>
+        <p>Сервер, сайт, өгөгдлийн сан хэвийн ажиллаж байгааг тасралтгүй шалгана. Доголдох мөчид бидэнд дохио ирнэ.</p>
+      </div>
+      <div class="ship">
+        <h3>CPU, RAM, дискний босго</h3>
+        <p>Нөөц дүүрч эхэлмэгц босго анхааруулна. Систем зогсохоос өмнө арга хэмжээ авна.</p>
+      </div>
+      <div class="ship">
+        <h3>Төлөвлөсөн засвар үйлчилгээ</h3>
+        <p>Үйлдлийн системийн шинэчлэлийг урьдчилан тохирсон цагт, танай ажилд саад болохгүйгээр хийнэ.</p>
+      </div>
+      <div class="ship">
+        <h3>Нөөцөөс сэргээх туршилт</h3>
+        <p>Нөөц хуулбар хийгээд орхихгүй. Улирал бүр нөөцөөсөө бодитоор сэргээж, ажиллаж байгааг нь шалгана.</p>
+      </div>
+      <div class="ship">
+        <h3>Асуудал гарвал</h3>
+        <p>Шалтгааныг нь олж засна. Дараа нь юу болсон, дахин гаргахгүйн тулд юу хийснээ бичгээр тайлагнана.</p>
+      </div>
+      <div class="ship">
+        <h3>Сар бүрийн тайлан</h3>
+        <p>Юу хийсэн, ямар асуудал гарсан, яаж шийдсэн, нөөцийн хэрэглээ хаашаа явж байгааг сар бүр харуулна.</p>
+      </div>
+    </div>
+
+    <table class="tiers">
+      <thead>
+        <tr><th>Шат</th><th>Юу багтах вэ</th><th>Хэнд тохирох вэ</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Хяналт</td>
+          <td data-l="Юу багтах вэ">24/7 хяналт, дохиолол, нөөцийн босго, асуудал шийдвэрлэх, сар бүрийн тайлан.</td>
+          <td data-l="Хэнд тохирох вэ">Систем нь тогтвортой, шинэ хувилбар ховор гаргадаг компани.</td>
+        </tr>
+        <tr>
+          <td>Хяналт + дэмжлэг</td>
+          <td data-l="Юу багтах вэ">Дээрхээс гадна шинэ хувилбар deploy хийх, сар бүр тогтсон дэмжлэгийн цаг.</td>
+          <td data-l="Хэнд тохирох вэ">Хөгжүүлэгчид нь шинэ хувилбар байнга гаргадаг компани.</td>
+        </tr>
+        <tr>
+          <td>Бүрэн хариуцлага</td>
+          <td data-l="Юу багтах вэ">Дээрхээс гадна үйлдлийн системийн төлөвлөсөн засвар, улирал бүр нөөцөөс сэргээх туршилт.</td>
+          <td data-l="Хэнд тохирох вэ">Систем нь зогсох эрсдэлийг даах аргагүй компани.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="keep"><strong>Танайд үлдэх зүйл:</strong> код, хөгжүүлэлт, өгөгдөл. Бид системийг тань ажиллуулж, хянана — эзэмшихгүй. Хүссэн үедээ өөр тийш шилжих боломжтой.</p>
+  </div>
+</section>
 
 <!-- ============ PIPELINE ============ -->
 <section id="pipeline">
@@ -330,7 +443,15 @@ footer a{color:var(--c-od-2)}
       </div>
       <div class="ship">
         <h3>Сар бүр гүйцэтгэлийн тайлан</h3>
-        <p>Хэдэн тикет орж ирсэн, хэдэн PR нээсэн, хэд нь merge болсон, хэр хугацаа зарцуулсныг тоогоор нь харуулна.</p>
+        <p>Хийсэн ажил, гарсан асуудал, статистик: хэдэн тикет орж ирсэн, хэдэн PR нээсэн, хэд нь merge болсон, хэр хугацаа зарцуулсан.</p>
+      </div>
+      <div class="ship">
+        <h3>Асуудал гарвал</h3>
+        <p>Pipeline буруу ажиллавал бид зогсоож, шалтгааныг нь олж засна. Юу болсон, юуг өөрчилснөө бичгээр мэдэгдэнэ.</p>
+      </div>
+      <div class="ship">
+        <h3>Өгөгдлийн нууцлал</h3>
+        <p>Танай кодыг зөвхөн танай олгосон эрхээр уншина. Өгөгдлийг сургалтад ашигладаггүй бизнесийн AI үйлчилгээг л ашиглана. Эрхийг хүссэн үедээ хаана.</p>
       </div>
     </div>
 
@@ -371,7 +492,10 @@ footer a{color:var(--c-od-2)}
       <div>
         <dl>
           <dt>Танай системүүдтэй холбогдоно</dt>
-          <dd>Имэйл, Jira, GitHub, өгөгдлийн сан, сервер. Slack-д асуултаа бичихэд PA хариултыг эх сурвалжаас нь шууд татаж ирнэ.</dd>
+          <dd>Имэйл, Jira, GitHub, өгөгдлийн сан, сервер. Бизнесийн асуултаа Slack-д бичихэд PA хариултыг эх сурвалжаас нь шууд татаж ирнэ.</dd>
+
+          <dt>Өдөр, долоо хоног бүрийн тайлан</dt>
+          <dd>Борлуулалт, захиалга, гол үзүүлэлтээ өглөө бүр Slack-аасаа уншина. Тайлан бэлтгэхэд хэн нэгэн цаг үрэхгүй.</dd>
 
           <dt>Илгээхээсээ өмнө заавал асууна</dt>
           <dd>Нэхэмжлэх, гэрээ, имэйлийг PA бэлтгэнэ, та уншаад шийднэ. Бусдад хүрэх зүйлийг PA өөрөө хэзээ ч илгээхгүй.</dd>
@@ -380,7 +504,7 @@ footer a{color:var(--c-od-2)}
           <dd>Хэн юунд хандахыг та тогтооно. Жишээ нь тайлангийн role зөвхөн өгөгдлийн санг уншина, кодонд хүрэхгүй.</dd>
 
           <dt>Асуухыг тань хүлээхгүй</dt>
-          <dd>Серверийн нөөц дүүрэх, систем зогсох зэрэг асуудлыг өөрөө түрүүлж хэлнэ.</dd>
+          <dd>Захиалга өмнөх сараас огцом буурах, серверийн нөөц дүүрэх зэрэг өөрчлөлтийг асуухаас тань өмнө хэлнэ.</dd>
         </dl>
         <p class="avail">Эхний хэрэглэгчдээ сонгож байна — сард 3 захирал.</p>
       </div>
@@ -452,7 +576,7 @@ footer a{color:var(--c-od-2)}
 <section class="start" id="start">
   <div class="wrap">
     <div class="sechead">
-      <h2>35 хоногийн туршилтаар эхэлье</h2>
+      <h2>Pipeline-ыг 35 хоног туршиж үзээрэй</h2>
       <p class="lede">Демо үзүүлэхгүй. Танай өөрийн код, өөрийн backlog дээр гарсан бодит үр дүнг харуулна.</p>
     </div>
 
@@ -469,7 +593,7 @@ footer a{color:var(--c-od-2)}
       <div>
         <p class="price">₮4,000,000<small>Тогтмол үнэ · 35 хоног · 50%-ийг эхлэхэд, 50%-ийг тайлан хүлээлгэн өгөхөд</small></p>
         <a class="btn btn-dark" href="mailto:hello@oyunai.dev?subject=OyunAI%20%E2%80%94%2035%20%D1%85%D0%BE%D0%BD%D0%BE%D0%B3%D0%B8%D0%B9%D0%BD%20%D1%82%D1%83%D1%80%D1%88%D0%B8%D0%BB%D1%82&amp;body=%D0%A1%D0%B0%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%B9%D0%BD%D0%B0%20%D1%83%D1%83%2C%0A%0A%D0%9A%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%3A%0ARepo%20%2F%20%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%3A%0A%D0%9E%D0%B4%D0%BE%D0%BE%20%D1%85%D1%8D%D1%80%D1%8D%D0%B3%D0%BB%D1%8D%D0%B6%20%D0%B1%D0%B0%D0%B9%D0%B3%D0%B0%D0%B0%20tracker%3A%0A%D0%AD%D1%85%D0%BB%D1%8D%D1%85%D0%B8%D0%B9%D0%B3%20%D1%85%D2%AF%D1%81%D1%81%D1%8D%D0%BD%20%D1%85%D1%83%D0%B3%D0%B0%D1%86%D0%B0%D0%B0%3A%0A">hello@oyunai.dev руу бичих</a>
-        <p class="contact">Эсвэл шууд бичээрэй: <a href="mailto:hello@oyunai.dev">hello@oyunai.dev</a></p>
+        <p class="contact">Managed Infrastructure эсвэл хувийн туслахын талаар ч энэ хаягаар бичээрэй: <a href="mailto:hello@oyunai.dev">hello@oyunai.dev</a></p>
       </div>
     </div>
   </div>

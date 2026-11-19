@@ -25,42 +25,39 @@
    Primary  = "Intelligence" → dark surfaces + headings (the canvas)
    Secondary= "Applied"      → --c-accent: buttons, the "AI", rules (the spark)
    --c-mark = logo loop + section rules (usually = accent)
-   Default (no data-theme) = A, locked 2026-11-19. ?preview still shows v1 / C for reference.
+   Default (no data-theme) = v1, kept 2026-11-19. ?preview shows A / C for comparison.
    Display: Space Grotesk (Latin) → Manrope (Cyrillic, per-glyph fallback) · Body: Inter */
 
 :root{
-  /* --- A · Tengri Indigo + Signal Orange (brand default) --- */
-  --c-dark-0:#10154A; --c-dark:#161D5C; --c-dark-2:#2B3A9E;
-  --c-heading:#1E2878;
-  --c-accent:#F26B1D; --c-accent-hover:#FF8743; --c-on-accent:#10154A;
-  --c-mark:#F26B1D;
+  /* --- v1 · Oyun Ink + Signal Gold (brand default) --- */
+  --c-dark-0:#0B1730; --c-dark:#0E1A33; --c-dark-2:#16264A;
+  --c-heading:#0E1A33;
+  --c-accent:#E6B450; --c-accent-hover:#F0C469; --c-on-accent:#0E1A33;
+  --c-mark:#E6B450;
   --c-positive:#1FA98F; --c-positive-lt:#7FE0C8; --c-positive-ink:#0D6D5B;
-  --c-caution:#C2413A;
+  --c-caution:#C56A35;
   --c-bg:#FBFAF7; --c-surface:#FFFFFF; --c-mist:#EDF1F7;
   --c-text:#2A3342; --c-text-2:#41495A; --c-muted:#5C6675; --c-line:#DFE4EC;
-  --c-od-hi:#EEF0FC; --c-od-1:#DFE2F8; --c-od-2:#BEC4EC; --c-od-3:#959DD6; --c-od-4:#737BBC; --c-od-chip:#363F8A;
-  --c-hold:#F6DCCB;
+  --c-od-hi:#EAF1FA; --c-od-1:#DCE7F4; --c-od-2:#B9CBE2; --c-od-3:#8FA6C2; --c-od-4:#6F86A4; --c-od-chip:#33405A;
+  --c-hold:#E8DCC4;
 
   --display:"Space Grotesk","Manrope",-apple-system,"Helvetica Neue",Arial,sans-serif;
   --body:"Inter",-apple-system,"Helvetica Neue",Arial,sans-serif;
   --wrap:1120px;
   --pad:clamp(20px,5vw,56px);
 }
-/* --- v1 · Oyun Ink + Signal Gold (previous) --- */
-:root[data-theme="v1"]{
-  --c-dark-0:#0B1730; --c-dark:#0E1A33; --c-dark-2:#16264A;
-  --c-heading:#0E1A33;
-  --c-accent:#E6B450; --c-accent-hover:#F0C469; --c-on-accent:#0E1A33;
-  --c-mark:#E6B450;
-  --c-caution:#C56A35;
-  --c-od-hi:#EAF1FA; --c-od-1:#DCE7F4; --c-od-2:#B9CBE2; --c-od-3:#8FA6C2; --c-od-4:#6F86A4; --c-od-chip:#33405A;
-  --c-hold:#E8DCC4;
+/* --- A · Tengri Indigo + Signal Orange --- */
+:root[data-theme="a"]{
+  --c-dark-0:#10154A; --c-dark:#161D5C; --c-dark-2:#2B3A9E;
+  --c-heading:#1E2878;
+  --c-accent:#F26B1D; --c-accent-hover:#FF8743; --c-on-accent:#10154A;
+  --c-mark:#F26B1D;
+  --c-caution:#C2413A;
+  --c-od-hi:#EEF0FC; --c-od-1:#DFE2F8; --c-od-2:#BEC4EC; --c-od-3:#959DD6; --c-od-4:#737BBC; --c-od-chip:#363F8A;
+  --c-hold:#F6DCCB;
 }
-/* --- C · Wisdom Gold + Circuit Teal (v1 surfaces) --- */
+/* --- C · Wisdom Gold + Circuit Teal (closest to v1) --- */
 :root[data-theme="c"]{
-  --c-dark-0:#0B1730; --c-dark:#0E1A33; --c-dark-2:#16264A;
-  --c-heading:#0E1A33;
-  --c-od-hi:#EAF1FA; --c-od-1:#DCE7F4; --c-od-2:#B9CBE2; --c-od-3:#8FA6C2; --c-od-4:#6F86A4; --c-od-chip:#33405A;
   --c-accent:#14B8A6; --c-accent-hover:#2DD4BF; --c-on-accent:#0E1A33;
   --c-mark:#E6B450;
   --c-positive:#2F9E5B; --c-positive-lt:#86E0A8; --c-positive-ink:#1D6B3C;
@@ -247,6 +244,20 @@ section.alt{background:var(--c-mist)}
 @media (max-width:760px){.guard:nth-child(2){border-top-color:var(--c-line)}}
 .guard h3{margin-bottom:6px}
 .guard p{font-size:15.5px;color:var(--c-muted);line-height:1.5}
+
+/* ---------- founder ---------- */
+.founder .person{display:grid;grid-template-columns:88px 1fr;gap:clamp(20px,3vw,32px);align-items:start;max-width:820px}
+@media (max-width:560px){.founder .person{grid-template-columns:1fr;gap:18px}}
+.founder .avatar{
+  width:88px;height:88px;border-radius:50%;display:grid;place-items:center;
+  background:var(--c-dark);color:var(--c-accent);font-family:var(--display);font-weight:700;font-size:28px;
+}
+.founder .name{font-size:22px}
+.founder .role{margin-top:4px;color:var(--c-muted);font-size:15.5px}
+.founder .exp{margin:18px 0 0;padding:0;list-style:none}
+.founder .exp li{padding:9px 0 9px 22px;border-top:1px solid var(--c-line);font-size:15.5px;line-height:1.5;position:relative}
+.founder .exp li::before{content:"";position:absolute;left:2px;top:18px;width:8px;height:8px;border-radius:50%;background:var(--c-mark)}
+.founder .li{display:inline-block;margin-top:18px;font-family:var(--display);font-weight:600;font-size:15px;color:var(--c-heading)}
 
 /* ---------- start / CTA ---------- */
 .start .box{
@@ -572,6 +583,30 @@ footer a{color:var(--c-od-2)}
   </div>
 </section>
 
+<!-- ============ FOUNDER ============ -->
+<section class="founder alt" id="founder">
+  <div class="wrap">
+    <div class="sechead">
+      <h2>Хэн хариуцах вэ</h2>
+      <p class="lede">OyunAI-ийн ажил бүрийн ард нэртэй хүн бий. Асуудал гарвал хэнтэй ярихаа та мэднэ.</p>
+    </div>
+    <div class="person">
+      <span class="avatar" aria-hidden="true">ЭГ</span>
+      <div>
+        <h3 class="name">Гантулгын Эрхэмбаяр</h3>
+        <p class="role">Үүсгэн байгуулагч, гүйцэтгэх захирал</p>
+        <ul class="exp">
+          <li>2009 оноос хойш программ хангамж хөгжүүлж байна — Монгол, Франц, Чехэд.</li>
+          <li>IBM-д DHL-ийн cloud дэд бүтцийг автоматжуулах төсөл дээр ажилласан.</li>
+          <li>TomYo EdTech-ийг хамтран үүсгэн байгуулж, CTO, R&amp;D-ийн ахлах, гүйцэтгэх захирлаар 7 жил ажилласан.</li>
+          <li>Хөгжүүлэлтийн багуудад Scrum, CI/CD, автомат deploy нэвтрүүлсэн.</li>
+        </ul>
+        <a class="li" href="https://www.linkedin.com/in/erkhembayar-gantulga" target="_blank" rel="noopener">LinkedIn профайл →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ START ============ -->
 <section class="start" id="start">
   <div class="wrap">
@@ -609,26 +644,26 @@ footer a{color:var(--c-od-2)}
 
 <div class="pv" id="pv" role="group" aria-label="Өнгөний хувилбар" hidden>
   <span>Palette</span>
-  <button type="button" data-t="a" aria-pressed="false"><i><b style="background:#2B3A9E"></b><b style="background:#F26B1D"></b></i>A</button>
   <button type="button" data-t="v1" aria-pressed="false"><i><b style="background:#0E1A33"></b><b style="background:#E6B450"></b></i>v1</button>
+  <button type="button" data-t="a" aria-pressed="false"><i><b style="background:#2B3A9E"></b><b style="background:#F26B1D"></b></i>A</button>
   <button type="button" data-t="c" aria-pressed="false"><i><b style="background:#E6B450"></b><b style="background:#14B8A6"></b></i>C</button>
 </div>
 <script>
-/* Palette preview: visible only with ?preview (or ?theme=v1|c). Public visitors always get A. */
+/* Palette preview: visible only with ?preview (or ?theme=a|c). Public visitors always get v1. */
 (function(){
-  var q=new URLSearchParams(location.search), themes=["a","v1","c"];
+  var q=new URLSearchParams(location.search), themes=["v1","a","c"];
   if(!q.has("preview") && !q.has("theme")) return;
   var KEY="oyunai-theme", root=document.documentElement, bar=document.getElementById("pv");
   function get(){try{return localStorage.getItem(KEY)}catch(e){return null}}
   function put(t){try{localStorage.setItem(KEY,t)}catch(e){}}
   function apply(t){
-    if(themes.indexOf(t)<0) t="a";
-    if(t==="a") root.removeAttribute("data-theme"); else root.setAttribute("data-theme",t);
+    if(themes.indexOf(t)<0) t="v1";
+    if(t==="v1") root.removeAttribute("data-theme"); else root.setAttribute("data-theme",t);
     bar.querySelectorAll("button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.t===t))});
     put(t);
   }
   bar.hidden=false;
-  apply(q.get("theme")||get()||"a");
+  apply(q.get("theme")||get()||"v1");
   bar.addEventListener("click",function(e){var b=e.target.closest("button"); if(b) apply(b.dataset.t)});
 })();
 </script>

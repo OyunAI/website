@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="OyunAI avatar">
   <title>OyunAI avatar</title>
-  <rect width="64" height="64" fill="#161D5C"/>
-  <path d="M 45.341 21.363 A 17.062 17.062 0 1 1 29.458 15.128" fill="none" stroke="#F26B1D" stroke-width="3.958" stroke-linecap="round"/><path d="M 38.940 16.413 L 30.414 21.469 L 28.503 8.787 Z" fill="#F26B1D" stroke="#F26B1D" stroke-width="1.346" stroke-linejoin="round"/><circle cx="32.000" cy="32.000" r="5.146" fill="#F26B1D"/>
+  <rect width="64" height="64" fill="#0E1A33"/>
+  <path d="M 45.341 21.363 A 17.062 17.062 0 1 1 29.458 15.128" fill="none" stroke="#E6B450" stroke-width="3.958" stroke-linecap="round"/><path d="M 38.940 16.413 L 30.414 21.469 L 28.503 8.787 Z" fill="#E6B450" stroke="#E6B450" stroke-width="1.346" stroke-linejoin="round"/><circle cx="32.000" cy="32.000" r="5.146" fill="#E6B450"/>
 </svg>

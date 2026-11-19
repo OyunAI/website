@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OyunAI — Applied intelligence. Operated.</title>
-<meta name="description" content="OyunAI Engineering Pipeline нь танай backlog-ийг хүн шалгахад бэлэн pull request болгоно. Merge хийх товчлуур танай багийн гарт үлдэнэ.">
+<meta name="description" content="OyunAI Engineering Pipeline танай backlog-ийг шалгахад бэлэн pull request болгож өгнө. Merge хийх эсэхийг танай баг өөрөө шийднэ.">
 <link rel="canonical" href="https://oyunai.dev/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://oyunai.dev/">
 <meta property="og:title" content="OyunAI — Applied intelligence. Operated.">
-<meta property="og:description" content="Танай backlog хүн шалгахад бэлэн pull request болж эргэж ирнэ. Merge хийх товчлуур танайд үлдэнэ.">
+<meta property="og:description" content="Танай backlog шалгахад бэлэн pull request болж буцаж ирнэ. Merge хийх эсэхийг танай баг өөрөө шийднэ.">
 <meta property="og:image" content="https://oyunai.dev/assets/og.png">
 <meta property="og:locale" content="mn_MN">
 <meta name="twitter:card" content="summary_large_image">
@@ -25,49 +25,42 @@
    Primary  = "Intelligence" → dark surfaces + headings (the canvas)
    Secondary= "Applied"      → --c-accent: buttons, the "AI", rules (the spark)
    --c-mark = logo loop + section rules (usually = accent)
-   Default (no data-theme) = v1. Preview others with ?preview
+   Default (no data-theme) = A, locked 2026-11-19. ?preview still shows v1 / C for reference.
    Display: Space Grotesk (Latin) → Manrope (Cyrillic, per-glyph fallback) · Body: Inter */
 
 :root{
-  /* --- v1 · Oyun Ink + Signal Gold (current) --- */
-  --c-dark-0:#0B1730; --c-dark:#0E1A33; --c-dark-2:#16264A;
-  --c-heading:#0E1A33;
-  --c-accent:#E6B450; --c-accent-hover:#F0C469; --c-on-accent:#0E1A33;
-  --c-mark:#E6B450;
+  /* --- A · Tengri Indigo + Signal Orange (brand default) --- */
+  --c-dark-0:#10154A; --c-dark:#161D5C; --c-dark-2:#2B3A9E;
+  --c-heading:#1E2878;
+  --c-accent:#F26B1D; --c-accent-hover:#FF8743; --c-on-accent:#10154A;
+  --c-mark:#F26B1D;
   --c-positive:#1FA98F; --c-positive-lt:#7FE0C8; --c-positive-ink:#0D6D5B;
-  --c-caution:#C56A35;
+  --c-caution:#C2413A;
   --c-bg:#FBFAF7; --c-surface:#FFFFFF; --c-mist:#EDF1F7;
   --c-text:#2A3342; --c-text-2:#41495A; --c-muted:#5C6675; --c-line:#DFE4EC;
-  --c-od-hi:#EAF1FA; --c-od-1:#DCE7F4; --c-od-2:#B9CBE2; --c-od-3:#8FA6C2; --c-od-4:#6F86A4; --c-od-chip:#33405A;
-  --c-hold:#E8DCC4;
+  --c-od-hi:#EEF0FC; --c-od-1:#DFE2F8; --c-od-2:#BEC4EC; --c-od-3:#959DD6; --c-od-4:#737BBC; --c-od-chip:#363F8A;
+  --c-hold:#F6DCCB;
 
   --display:"Space Grotesk","Manrope",-apple-system,"Helvetica Neue",Arial,sans-serif;
   --body:"Inter",-apple-system,"Helvetica Neue",Arial,sans-serif;
   --wrap:1120px;
   --pad:clamp(20px,5vw,56px);
 }
-/* --- A · Tengri Indigo + Signal Orange (recommended) --- */
-:root[data-theme="a"]{
-  --c-dark-0:#10154A; --c-dark:#161D5C; --c-dark-2:#2B3A9E;
-  --c-heading:#1E2878;
-  --c-accent:#F26B1D; --c-accent-hover:#FF8743; --c-on-accent:#10154A;
-  --c-mark:#F26B1D;
-  --c-caution:#C2413A;
-  --c-od-hi:#EEF0FC; --c-od-1:#DFE2F8; --c-od-2:#BEC4EC; --c-od-3:#959DD6; --c-od-4:#737BBC; --c-od-chip:#363F8A;
-  --c-hold:#F6DCCB;
+/* --- v1 · Oyun Ink + Signal Gold (previous) --- */
+:root[data-theme="v1"]{
+  --c-dark-0:#0B1730; --c-dark:#0E1A33; --c-dark-2:#16264A;
+  --c-heading:#0E1A33;
+  --c-accent:#E6B450; --c-accent-hover:#F0C469; --c-on-accent:#0E1A33;
+  --c-mark:#E6B450;
+  --c-caution:#C56A35;
+  --c-od-hi:#EAF1FA; --c-od-1:#DCE7F4; --c-od-2:#B9CBE2; --c-od-3:#8FA6C2; --c-od-4:#6F86A4; --c-od-chip:#33405A;
+  --c-hold:#E8DCC4;
 }
-/* --- B · Tengri Indigo + Circuit Teal --- */
-:root[data-theme="b"]{
-  --c-dark-0:#10154A; --c-dark:#161D5C; --c-dark-2:#2B3A9E;
-  --c-heading:#1E2878;
-  --c-accent:#14B8A6; --c-accent-hover:#2DD4BF; --c-on-accent:#0B1240;
-  --c-mark:#14B8A6;
-  --c-positive:#2F9E5B; --c-positive-lt:#86E0A8; --c-positive-ink:#1D6B3C;
-  --c-od-hi:#EEF0FC; --c-od-1:#DFE2F8; --c-od-2:#BEC4EC; --c-od-3:#959DD6; --c-od-4:#737BBC; --c-od-chip:#363F8A;
-  --c-hold:#D3F1EC;
-}
-/* --- C · Wisdom Gold + Circuit Teal (closest to v1) --- */
+/* --- C · Wisdom Gold + Circuit Teal (v1 surfaces) --- */
 :root[data-theme="c"]{
+  --c-dark-0:#0B1730; --c-dark:#0E1A33; --c-dark-2:#16264A;
+  --c-heading:#0E1A33;
+  --c-od-hi:#EAF1FA; --c-od-1:#DCE7F4; --c-od-2:#B9CBE2; --c-od-3:#8FA6C2; --c-od-4:#6F86A4; --c-od-chip:#33405A;
   --c-accent:#14B8A6; --c-accent-hover:#2DD4BF; --c-on-accent:#0E1A33;
   --c-mark:#E6B450;
   --c-positive:#2F9E5B; --c-positive-lt:#86E0A8; --c-positive-ink:#1D6B3C;
@@ -196,16 +189,16 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--c-accent);outline-o
   .tiers tr.reco td:first-child{box-shadow:none}
 }
 
-/* ---------- Kandi ---------- */
-.kandi{background:var(--c-dark);color:var(--c-od-1)}
-.kandi h2,.kandi h3{color:#fff}
-.kandi .sechead p{color:var(--c-od-2)}
-.kandi .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,60px);align-items:start}
-@media (max-width:880px){.kandi .cols{grid-template-columns:1fr;gap:34px}}
-.kandi dl{margin:0}
-.kandi dt{font-family:var(--display);font-weight:600;font-size:16.5px;color:#fff;margin-top:22px}
-.kandi dt:first-child{margin-top:0}
-.kandi dd{margin:5px 0 0;color:var(--c-od-2);font-size:15.5px;line-height:1.5;max-width:46ch}
+/* ---------- Хувийн туслах (PA) ---------- */
+.pa{background:var(--c-dark);color:var(--c-od-1)}
+.pa h2,.pa h3{color:#fff}
+.pa .sechead p{color:var(--c-od-2)}
+.pa .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,60px);align-items:start}
+@media (max-width:880px){.pa .cols{grid-template-columns:1fr;gap:34px}}
+.pa dl{margin:0}
+.pa dt{font-family:var(--display);font-weight:600;font-size:16.5px;color:#fff;margin-top:22px}
+.pa dt:first-child{margin-top:0}
+.pa dd{margin:5px 0 0;color:var(--c-od-2);font-size:15.5px;line-height:1.5;max-width:46ch}
 .avail{
   display:inline-block;margin-top:30px;font-size:14.5px;color:var(--c-accent);
   border:1px solid color-mix(in srgb,var(--c-accent) 35%,transparent);border-radius:5px;padding:7px 14px;
@@ -290,7 +283,7 @@ footer a{color:var(--c-od-2)}
     <a href="#top" aria-label="OyunAI"><svg class="logo" viewBox="0 0 487.72 116.10" role="img" aria-label="OyunAI"><use href="#oyunai-logo"/></svg></a>
     <nav>
       <a href="#pipeline">Engineering Pipeline</a>
-      <a href="#kandi">Kandi</a>
+      <a href="#pa">Хувийн туслах</a>
       <a href="#start">Үнэ</a>
       <a class="btn btn-accent" href="mailto:hello@oyunai.dev?subject=OyunAI%20%E2%80%94%20%D1%82%D1%83%D1%80%D1%88%D0%B8%D0%BB%D1%82%D1%8B%D0%BD%20%D1%82%D0%B0%D0%BB%D0%B0%D0%B0%D1%80">Холбоо барих</a>
     </nav>
@@ -302,9 +295,9 @@ footer a{color:var(--c-od-2)}
   <div class="wrap">
     <div>
       <p class="tagline">Applied intelligence. Operated.</p>
-      <h1>Танай backlog <span class="nb">pull request</span> болж эргэж ирнэ.</h1>
-      <p class="lede">OyunAI Engineering Pipeline танай тикетүүдийг эрэмбэлж, төлөвлөж, код бичээд танай repo дээр pull request нээнэ. Тасралтгүй.</p>
-      <p class="gate">Merge хийх товчлуур танай багийн гарт үлдэнэ. Хариуцлагыг нэрлэсэн хүн хүлээнэ.</p>
+      <h1>Танай backlog <span class="nb">pull request</span> болж буцаж ирнэ.</h1>
+      <p class="lede">OyunAI Engineering Pipeline танай тикетийг эрэмбэлж, төлөвлөж, кодыг нь бичээд танай repo дээр pull request нээнэ. Амралтын өдөр ч зогсохгүй.</p>
+      <p class="gate">Merge хийх эсэхийг танай баг өөрөө шийднэ. Ажил бүрийг нэртэй хүн хариуцна.</p>
       <div class="hero-cta">
         <a class="btn btn-accent" href="#start">35 хоногийн туршилт</a>
         <a class="btn btn-ghost" href="#pipeline">Хэрхэн ажилладаг</a>
@@ -319,25 +312,25 @@ footer a{color:var(--c-od-2)}
   <div class="wrap">
     <div class="sechead">
       <h2>OyunAI Engineering Pipeline</h2>
-      <p class="lede">Хөгжүүлэгч нэмж авахгүйгээр backlog-оо урагшлуулна. Бид pipeline-ыг ажиллуулж, танай кодод тааруулж, эвдэрсэн үед нь хариуцна.</p>
+      <p class="lede">Хөгжүүлэгч нэмж авалгүйгээр backlog-оо урагшлуулаарай. Pipeline-ыг бид ажиллуулж, танай кодонд тааруулж, доголдвол өөрсдөө засна.</p>
     </div>
 
     <div class="ships">
       <div class="ship">
         <h3>Танай tracker дээр төлөвлөгөө</h3>
-        <p>Шинэ тикет ирэхэд эрэмбэлж, хэрэгжүүлэх төлөвлөгөөг тикет дээр нь бичнэ. Ойлгомжгүй тикетийг таамаглахгүй — тодруулга хүсээд хүлээнэ.</p>
+        <p>Шинэ тикет ирмэгц эрэмбэлээд, хэрхэн хэрэгжүүлэх төлөвлөгөөг тикет дээр нь бичнэ. Тикет ойлгомжгүй бол таамгаар явахгүй — тодруулга асуугаад хүлээнэ.</p>
       </div>
       <div class="ship">
         <h3>Танай repo дээр pull request</h3>
-        <p>Код танай конвенцоор бичигдэж, танай тестийг давсан байдлаар PR болж ирнэ. Юуг өөрчилсөн, юуг шалгасныг PR дээрээ бичнэ.</p>
+        <p>Танай конвенцоор код бичиж, танай тестийг давуулаад PR нээнэ. Юуг өөрчилж, юуг шалгаснаа PR дээрээ тайлбарлана.</p>
       </div>
       <div class="ship">
-        <h3>Долоо хоног бүрийн pipeline review</h3>
-        <p>Sprint-ийн тайлан, ботын үйлдлийн лог хоёрыг уншиж, pipeline-ыг танай багийн ажлын хэвэнд ойртуулна. Энэ бол үйлчилгээний гол хөдөлгүүр.</p>
+        <h3>Долоо хоног бүр pipeline-аа сайжруулна</h3>
+        <p>Sprint-ийн тайлан, ботын үйлдлийн логийг долоо хоног бүр уншиж, pipeline-ыг танай багийн ажлын хэв маягт ойртуулна. Үйлчилгээний гол үнэ цэн эндээс гардаг.</p>
       </div>
       <div class="ship">
-        <h3>Сар бүрийн гүйцэтгэлийн тайлан</h3>
-        <p>Хэдэн тикет орсон, хэдэн PR нээсэн, хэд нь merge болсон, ямар хугацаанд. Тоогоор, тайлбаргүйгээр.</p>
+        <h3>Сар бүр гүйцэтгэлийн тайлан</h3>
+        <p>Хэдэн тикет орж ирсэн, хэдэн PR нээсэн, хэд нь merge болсон, хэр хугацаа зарцуулсныг тоогоор нь харуулна.</p>
       </div>
     </div>
 
@@ -348,51 +341,51 @@ footer a{color:var(--c-od-2)}
       <tbody>
         <tr>
           <td>Assisted</td>
-          <td data-l="Юу хийх вэ">Тикетийг эрэмбэлж, хэрэгжүүлэх дэлгэрэнгүй төлөвлөгөө бичнэ. Кодыг танай баг бичнэ.</td>
-          <td data-l="Хүний хяналт">Танай баг хэрэгжүүлж, merge хийж, deploy хийнэ.</td>
+          <td data-l="Юу хийх вэ">Тикетийг эрэмбэлээд, хэрэгжүүлэх дэлгэрэнгүй төлөвлөгөө бичнэ. Кодыг танай баг бичнэ.</td>
+          <td data-l="Хүний хяналт">Танай баг хэрэгжүүлээд merge, deploy хийнэ.</td>
         </tr>
         <tr class="reco">
           <td>Managed Pipeline<span class="mark">Санал болгож буй</span></td>
-          <td data-l="Юу хийх вэ">Бүтэн гогцоо: эрэмбэлж, төлөвлөж, <b>код бичээд pull request нээнэ</b>. Бид ажиллуулж, тааруулна.</td>
-          <td data-l="Хүний хяналт">Танай баг шалгаж, merge хийж, deploy хийнэ.</td>
+          <td data-l="Юу хийх вэ">Бүтэн гогцоо: эрэмбэлж, төлөвлөж, <b>код бичээд pull request нээнэ</b>. Pipeline-ыг бид ажиллуулж, тааруулна.</td>
+          <td data-l="Хүний хяналт">Танай баг шалгаад merge, deploy хийнэ.</td>
         </tr>
         <tr>
           <td>Governed Autonomy</td>
-          <td data-l="Юу хийх вэ">Production-ы дохиог тикет болгож, засвар хүртэл автоматаар авчирна — хатуу хязгаарын дотор.</td>
-          <td data-l="Хүний хяналт">Бодлогыг та тогтооно. Эрсдэлтэй өөрчлөлт үргэлж хүн дээр зогсоно.</td>
+          <td data-l="Юу хийх вэ">Production-оос ирсэн дохиог тикет болгоод, засвар хүртэл нь автоматаар хүргэнэ — тохирсон хязгаар дотроо.</td>
+          <td data-l="Хүний хяналт">Хязгаарыг та тогтооно. Эрсдэлтэй өөрчлөлт бүрийг хүн шийднэ.</td>
         </tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<!-- ============ KANDI ============ -->
-<section class="kandi" id="kandi">
+<!-- ============ PA ============ -->
+<section class="pa" id="pa">
   <div class="wrap">
     <div class="sechead">
-      <h2>Kandi — гүйцэтгэх захирлын хувийн туслах</h2>
-      <p class="lede">Танай Slack дотор ажиллана. Танай системүүдэд эрхтэй холбогдож, ажлыг бэлтгэж өгнө. Хүнд хүрэх бүх зүйлийг та л батална.</p>
+      <h2>Хувийн туслах (PA)</h2>
+      <p class="lede">Гүйцэтгэх захиралд зориулсан туслах. Танай Slack дотор ажиллаж, системүүдээс тань мэдээлэл татаж, ажлыг тань бэлтгэж өгнө. Гадагш явах бүх зүйлийг та өөрөө батална.</p>
     </div>
 
     <div class="cols">
       <div>
         <dl>
           <dt>Танай системүүдтэй холбогдоно</dt>
-          <dd>Имэйл, Jira, GitHub, өгөгдлийн сан, сервер. Асуултаа Slack-д бичихэд Kandi хариуг эх сурвалжаас нь татаж ирнэ.</dd>
+          <dd>Имэйл, Jira, GitHub, өгөгдлийн сан, сервер. Slack-д асуултаа бичихэд PA хариултыг эх сурвалжаас нь шууд татаж ирнэ.</dd>
 
-          <dt>Илгээхийн өмнө үргэлж асууна</dt>
-          <dd>Нэхэмжлэх, гэрээ, имэйл — Kandi бэлтгэнэ, та уншаад шийднэ. Өөр хүнд хүрэх юмыг Kandi өөрөө илгээхгүй.</dd>
+          <dt>Илгээхээсээ өмнө заавал асууна</dt>
+          <dd>Нэхэмжлэх, гэрээ, имэйлийг PA бэлтгэнэ, та уншаад шийднэ. Бусдад хүрэх зүйлийг PA өөрөө хэзээ ч илгээхгүй.</dd>
 
           <dt>Role бүр өөрийн эрхтэй</dt>
-          <dd>Хэн юунд хүрэхийг та тогтооно. Тайлангийн role зөвхөн өгөгдлийн санг уншина, кодод хүрэхгүй.</dd>
+          <dd>Хэн юунд хандахыг та тогтооно. Жишээ нь тайлангийн role зөвхөн өгөгдлийн санг уншина, кодонд хүрэхгүй.</dd>
 
-          <dt>Асуухаа хүлээхгүй</dt>
-          <dd>Серверийн нөөц дүүрэх, ажиллагаа зогсох зэрэг зүйлийг өөрөө хэлнэ.</dd>
+          <dt>Асуухыг тань хүлээхгүй</dt>
+          <dd>Серверийн нөөц дүүрэх, систем зогсох зэрэг асуудлыг өөрөө түрүүлж хэлнэ.</dd>
         </dl>
         <p class="avail">Эхний хэрэглэгчдээ сонгож байна — сард 3 захирал.</p>
       </div>
 
-      <div class="thread" aria-label="Kandi-тай харилцах жишээ">
+      <div class="thread" aria-label="Хувийн туслахтай харилцах жишээ">
         <p class="ch">#oyunai-pa</p>
         <div class="msg">
           <span class="who me" aria-hidden="true">ЭГ</span>
@@ -402,10 +395,10 @@ footer a{color:var(--c-od-2)}
           </div>
         </div>
         <div class="msg hold">
-          <span class="who k" aria-hidden="true">K</span>
+          <span class="who k" aria-hidden="true">PA</span>
           <div class="body">
-            <p class="nm">Kandi</p>
-            <p class="tx">Бэлэн. Дүн, хугацаа, хавсралтыг шалгаад хэлээрэй — <em>таны зөвшөөрөлгүйгээр илгээхгүй.</em></p>
+            <p class="nm">PA</p>
+            <p class="tx">Бэлэн боллоо. Дүн, хугацаа, хавсралтаа шалгаад хэлээрэй — <em>таны зөвшөөрөлгүйгээр илгээхгүй.</em></p>
           </div>
         </div>
         <div class="msg">
@@ -416,10 +409,10 @@ footer a{color:var(--c-od-2)}
           </div>
         </div>
         <div class="msg">
-          <span class="who k" aria-hidden="true">K</span>
+          <span class="who k" aria-hidden="true">PA</span>
           <div class="body">
-            <p class="nm">Kandi</p>
-            <p class="tx">Одоогоор 61%. Өнгөрсөн долоо хоногт 84% хүрсэн тул swap нэмсэн.</p>
+            <p class="nm">PA</p>
+            <p class="tx">Одоо 61% дүүрсэн байна. Өнгөрсөн долоо хоногт 84% хүрэхэд нь swap нэмсэн.</p>
           </div>
         </div>
       </div>
@@ -431,25 +424,25 @@ footer a{color:var(--c-od-2)}
 <section id="guards">
   <div class="wrap">
     <div class="sechead">
-      <h2>Хяналт бол шинж чанар, нэмэлт биш</h2>
-      <p class="lede">Автоматжуулалт хаана зогсохыг урьдчилан бичиж, танаар батлуулна. Дараа нь л ажиллуулна.</p>
+      <h2>Хяналтыг эхнээс нь суулгасан</h2>
+      <p class="lede">Автоматжуулалт хаана зогсохыг урьдчилан бичээд танаар батлуулна. Үүний дараа л ажиллуулж эхэлнэ.</p>
     </div>
     <div class="guards">
       <div class="guard">
-        <h3>Merge хийх товчлуур танайд</h3>
-        <p>Танай үндсэн салбарт хүн зөвшөөрөхгүйгээр код орохгүй.</p>
+        <h3>Merge хийх эрх танд</h3>
+        <p>Танай үндсэн салбарт хүний зөвшөөрөлгүйгээр нэг ч мөр код орохгүй.</p>
       </div>
       <div class="guard">
         <h3>Эрсдэлээр нь ангилна</h3>
-        <p>Өгөгдлийн сангийн бүтэц, төлбөр, нэвтрэлт, өгөгдлийн шилжилт — хэчнээн жижиг харагдсан ч үргэлж хүн дээр зогсоно.</p>
+        <p>Өгөгдлийн сангийн бүтэц, төлбөр, нэвтрэлт, өгөгдөл шилжүүлэлт — хэчнээн жижиг өөрчлөлт байсан ч заавал хүн шийднэ.</p>
       </div>
       <div class="guard">
         <h3>Бүх үйлдэл ул мөр үлдээнэ</h3>
-        <p>Аль тикетэд юу хийснийг танай tracker болон git түүх дээр бүтнээр нь харна. Тайлангийн тоо энэ хоёроос гарна.</p>
+        <p>Аль тикет дээр юу хийснийг танай tracker, git түүхээс бүрэн харна. Тайлангийн тоо ч эдгээрээс гардаг.</p>
       </div>
       <div class="guard">
         <h3>Зогсоох товчлуур</h3>
-        <p>Хүссэн үедээ pipeline-ыг зогсооно. Шалтгаан хэлэх шаардлагагүй, зөвшөөрөл хүлээх шаардлагагүй.</p>
+        <p>Pipeline-ыг хүссэн үедээ зогсооно. Шалтгаан тайлбарлах, зөвшөөрөл хүлээх шаардлагагүй.</p>
       </div>
     </div>
   </div>
@@ -459,22 +452,22 @@ footer a{color:var(--c-od-2)}
 <section class="start" id="start">
   <div class="wrap">
     <div class="sechead">
-      <h2>35 хоногийн туршилтаас эхэлнэ</h2>
-      <p class="lede">Демо биш. Танай өөрийн код дээр, танай өөрийн backlog-оос гарсан үр дүнг харна.</p>
+      <h2>35 хоногийн туршилтаар эхэлье</h2>
+      <p class="lede">Демо үзүүлэхгүй. Танай өөрийн код, өөрийн backlog дээр гарсан бодит үр дүнг харуулна.</p>
     </div>
 
     <div class="box">
       <div>
         <ul class="incl">
-          <li>Танай нэг repo болон tracker дээр pipeline-ыг холбож, кодод чинь тааруулна</li>
-          <li>Танай бодит backlog-оос 15–25 тикетийг pipeline-аар өнгөрүүлнэ</li>
-          <li>Хязгаарын бодлого — pipeline юунд хүрч болох, юунд хүрч болохгүйг бичиж, танаар батлуулна</li>
-          <li>Туршилтын тайлан: хэдэн тикет, хэдэн PR, хүлээн авсан хувь, хугацаа</li>
+          <li>Pipeline-ыг танай нэг repo, tracker-т холбож, кодонд тань тааруулна</li>
+          <li>Танай бодит backlog-оос 15–25 тикетийг pipeline-аар гүйлгэнэ</li>
+          <li>Pipeline юунд хүрч болох, юунд болохгүйг бичгээр тохирч, танаар батлуулна</li>
+          <li>Туршилтын тайлан: хэдэн тикет, хэдэн PR, хэдэн хувийг нь хүлээж авсан, хэр хугацаа зарцуулсан</li>
         </ul>
-        <p class="after">35 дахь өдөр үр дүнг хамтдаа үнэлнэ. Үргэлжлүүлэх үүрэг танд байхгүй. Үргэлжлүүлбэл тохируулгын төлбөр нэмж авахгүй.</p>
+        <p class="after">35 дахь өдөр үр дүнгээ хамтдаа дүгнэнэ. Үргэлжлүүлэх үүрэг танд үүсэхгүй. Үргэлжлүүлбэл тохируулгын нэмэлт төлбөр авахгүй.</p>
       </div>
       <div>
-        <p class="price">₮4,000,000<small>Тогтмол үнэ · 35 хоног · 50% эхлэхэд, 50% тайлан хүлээлгэн өгөхөд</small></p>
+        <p class="price">₮4,000,000<small>Тогтмол үнэ · 35 хоног · 50%-ийг эхлэхэд, 50%-ийг тайлан хүлээлгэн өгөхөд</small></p>
         <a class="btn btn-dark" href="mailto:hello@oyunai.dev?subject=OyunAI%20%E2%80%94%2035%20%D1%85%D0%BE%D0%BD%D0%BE%D0%B3%D0%B8%D0%B9%D0%BD%20%D1%82%D1%83%D1%80%D1%88%D0%B8%D0%BB%D1%82&amp;body=%D0%A1%D0%B0%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%B9%D0%BD%D0%B0%20%D1%83%D1%83%2C%0A%0A%D0%9A%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%3A%0ARepo%20%2F%20%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%3A%0A%D0%9E%D0%B4%D0%BE%D0%BE%20%D1%85%D1%8D%D1%80%D1%8D%D0%B3%D0%BB%D1%8D%D0%B6%20%D0%B1%D0%B0%D0%B9%D0%B3%D0%B0%D0%B0%20tracker%3A%0A%D0%AD%D1%85%D0%BB%D1%8D%D1%85%D0%B8%D0%B9%D0%B3%20%D1%85%D2%AF%D1%81%D1%81%D1%8D%D0%BD%20%D1%85%D1%83%D0%B3%D0%B0%D1%86%D0%B0%D0%B0%3A%0A">hello@oyunai.dev руу бичих</a>
         <p class="contact">Эсвэл шууд бичээрэй: <a href="mailto:hello@oyunai.dev">hello@oyunai.dev</a></p>
       </div>
@@ -492,27 +485,26 @@ footer a{color:var(--c-od-2)}
 
 <div class="pv" id="pv" role="group" aria-label="Өнгөний хувилбар" hidden>
   <span>Palette</span>
-  <button type="button" data-t="v1" aria-pressed="false"><i><b style="background:#0E1A33"></b><b style="background:#E6B450"></b></i>v1</button>
   <button type="button" data-t="a" aria-pressed="false"><i><b style="background:#2B3A9E"></b><b style="background:#F26B1D"></b></i>A</button>
-  <button type="button" data-t="b" aria-pressed="false"><i><b style="background:#2B3A9E"></b><b style="background:#14B8A6"></b></i>B</button>
+  <button type="button" data-t="v1" aria-pressed="false"><i><b style="background:#0E1A33"></b><b style="background:#E6B450"></b></i>v1</button>
   <button type="button" data-t="c" aria-pressed="false"><i><b style="background:#E6B450"></b><b style="background:#14B8A6"></b></i>C</button>
 </div>
 <script>
-/* Palette preview: visible only with ?preview (or ?theme=a|b|c). Public visitors always get v1. */
+/* Palette preview: visible only with ?preview (or ?theme=v1|c). Public visitors always get A. */
 (function(){
-  var q=new URLSearchParams(location.search), themes=["v1","a","b","c"];
+  var q=new URLSearchParams(location.search), themes=["a","v1","c"];
   if(!q.has("preview") && !q.has("theme")) return;
   var KEY="oyunai-theme", root=document.documentElement, bar=document.getElementById("pv");
   function get(){try{return localStorage.getItem(KEY)}catch(e){return null}}
   function put(t){try{localStorage.setItem(KEY,t)}catch(e){}}
   function apply(t){
-    if(themes.indexOf(t)<0) t="v1";
-    if(t==="v1") root.removeAttribute("data-theme"); else root.setAttribute("data-theme",t);
+    if(themes.indexOf(t)<0) t="a";
+    if(t==="a") root.removeAttribute("data-theme"); else root.setAttribute("data-theme",t);
     bar.querySelectorAll("button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.t===t))});
     put(t);
   }
   bar.hidden=false;
-  apply(q.get("theme")||get()||"v1");
+  apply(q.get("theme")||get()||"a");
   bar.addEventListener("click",function(e){var b=e.target.closest("button"); if(b) apply(b.dataset.t)});
 })();
 </script>

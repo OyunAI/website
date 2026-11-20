@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OyunAI — Applied intelligence. Operated.</title>
-<meta name="description" content="OyunAI Labs танай сервер, хөгжүүлэлт, удирдлагын мэдээллийг AI-д тулгуурласан үйлчилгээгээр хариуцна. Шийдвэр танд үлдэнэ.">
+<meta name="description" content="Сервер хянахаас эхлээд код бичих, систем хөгжүүлэх, тайлан бэлтгэх хүртэл — OyunAI Labs-ийн мэргэжлийн баг танай технологийн ажлыг AI-тай хослуулан хариуцна. Шийдвэр танд үлдэнэ.">
 <link rel="canonical" href="https://oyunai.dev/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://oyunai.dev/">
 <meta property="og:title" content="OyunAI — Applied intelligence. Operated.">
-<meta property="og:description" content="Сервер хянахаас эхлээд код бичих, удирдлагын тайлан бэлтгэх хүртэл. Системийг тань бид ажиллуулна, шийдвэр танд үлдэнэ.">
+<meta property="og:description" content="Сервер хянахаас эхлээд код бичих, систем хөгжүүлэх, тайлан бэлтгэх хүртэл. Системээ мэргэжлийн багт даатгаарай, шийдвэр танд үлдэнэ.">
 <meta property="og:image" content="https://oyunai.dev/assets/og.png">
 <meta property="og:locale" content="mn_MN">
 <meta name="twitter:card" content="summary_large_image">
@@ -155,6 +155,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--c-accent);outline-o
 .hero .lede{color:var(--c-od-2);margin-top:22px;max-width:52ch}
 .hero .gate{margin-top:14px;color:var(--c-od-3);font-size:16px;max-width:44ch}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.gets{margin:26px 0 0;padding:0;list-style:none;max-width:62ch}
+.gets li{position:relative;padding:7px 0 7px 24px;color:var(--c-od-1);font-size:16px;line-height:1.5}
+.gets li::before{content:"";position:absolute;left:2px;top:16px;width:8px;height:8px;border-radius:50%;background:var(--c-mark)}
+.gets li span{color:var(--c-od-3)}
 
 /* ---------- ships list ---------- */
 .ships{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(28px,5vw,56px)}
@@ -176,6 +180,16 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--c-accent);outline-o
 .card p{font-size:15.5px;color:var(--c-muted);line-height:1.5;flex:1}
 .card .more{font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--c-heading)}
 .path{margin-top:22px;font-size:15.5px;color:var(--c-muted);max-width:70ch}
+.fn{margin-top:22px;font-size:14px;color:var(--c-muted);line-height:1.55;max-width:80ch}
+.fn a{color:var(--c-heading)}
+sup.fnm{font-size:.62em;color:var(--c-accent);margin-left:1px;font-weight:700}
+.fn + .fn{margin-top:8px}
+.hero .fn{color:var(--c-od-3);margin-top:30px;font-size:13.5px}
+.hero .fn a{color:var(--c-od-2)}
+.trust{margin-top:34px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding:16px 20px;border:1px solid var(--c-line);border-radius:8px;background:var(--c-surface)}
+.trust .tl{font-family:var(--display);font-size:13px;font-weight:600;color:var(--c-muted);letter-spacing:.02em}
+.trust .co{font-family:var(--display);font-weight:600;color:var(--c-heading)}
+.trust .co small{font-family:var(--body);font-weight:400;color:var(--c-muted);font-size:14.5px}
 section.alt{background:var(--c-mist)}
 .keep{
   margin-top:30px;padding:16px 20px;background:var(--c-surface);border-left:3px solid var(--c-positive);
@@ -248,16 +262,15 @@ section.alt{background:var(--c-mist)}
 /* ---------- founder ---------- */
 .founder .person{display:grid;grid-template-columns:88px 1fr;gap:clamp(20px,3vw,32px);align-items:start;max-width:820px}
 @media (max-width:560px){.founder .person{grid-template-columns:1fr;gap:18px}}
-.founder .avatar{
-  width:88px;height:88px;border-radius:50%;display:grid;place-items:center;
-  background:var(--c-dark);color:var(--c-accent);font-family:var(--display);font-weight:700;font-size:28px;
-}
+.founder .avatar{display:block;width:88px;height:88px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 3px var(--c-mark)}
+.founder .avatar img{display:block;width:100%;height:100%;object-fit:cover}
 .founder .name{font-size:22px}
 .founder .role{margin-top:4px;color:var(--c-muted);font-size:15.5px}
 .founder .exp{margin:18px 0 0;padding:0;list-style:none}
 .founder .exp li{padding:9px 0 9px 22px;border-top:1px solid var(--c-line);font-size:15.5px;line-height:1.5;position:relative}
 .founder .exp li::before{content:"";position:absolute;left:2px;top:18px;width:8px;height:8px;border-radius:50%;background:var(--c-mark)}
-.founder .li{display:inline-block;margin-top:18px;font-family:var(--display);font-weight:600;font-size:15px;color:var(--c-heading)}
+.founder .links{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:18px}
+.founder .li{font-family:var(--display);font-weight:600;font-size:15px;color:var(--c-heading)}
 
 /* ---------- start / CTA ---------- */
 .start .box{
@@ -326,13 +339,21 @@ footer a{color:var(--c-od-2)}
   <div class="wrap">
     <div>
       <p class="tagline">Applied intelligence. Operated.</p>
-      <h1>Системийг тань бид ажиллуулна. Шийдвэр танд үлдэнэ.</h1>
-      <p class="lede">Сервер хянахаас эхлээд код бичих, удирдлагын тайлан бэлтгэх хүртэл — AI-д тулгуурласан гурван үйлчилгээгээр танай технологийн ажлыг хариуцна.</p>
-      <p class="gate">Ажил бүрийг нэртэй хүн хариуцна. Эрсдэлтэй алхам бүрийг танай хүн батална.</p>
+      <h1>Системээ мэргэжлийн багт даатгаарай. Шийдвэр танд үлдэнэ.</h1>
+      <p class="lede">Сервер хянахаас эхлээд код бичих, систем хөгжүүлэх, тайлан бэлтгэх хүртэл — танай технологийн ажлыг мэргэжлийн баг AI-тай хослуулан хариуцна.</p>
+      <ul class="gets">
+        <li>Сайт, систем тань тасралтгүй ажиллана. Мэргэжлийн баг тогтмол хяналт тавьж, засвар үйлчилгээг нь хийнэ.</li>
+        <li>Юу хөгжүүлэхээ та шийднэ. Технологийн нарийн ширийн<sup class="fnm">1</sup> зүйлийг бид хариуцна.</li>
+        <li>Зардал бүхэн ил тод. Далд төлбөр байхгүй.</li>
+        <li>Тайлан, урьдчилсан дохиог асуухаас тань өмнө хүргэнэ.</li>
+        <li>Өгөгдөл тань хаана хадгалагдаж, хэрхэн дамждагийг та мэднэ.</li>
+      </ul>
+      <p class="gate">Ажил бүрийн ард хариуцах хүн байна. Эрсдэлтэй алхам бүрийг хүн баталгаажуулна.</p>
       <div class="hero-cta">
         <a class="btn btn-accent" href="#start">35 хоногийн туршилт</a>
         <a class="btn btn-ghost" href="#services">Үйлчилгээнүүд</a>
       </div>
+      <p class="fn"><sup class="fnm">1</sup> Context engineering, RAG, prompting-ийн арга техник, agent-ийн harness-ийг тохируулж, удирдах гэх мэт.</p>
     </div>
 
   </div>
@@ -342,30 +363,31 @@ footer a{color:var(--c-od-2)}
 <section id="services">
   <div class="wrap">
     <div class="sechead">
-      <h2>Гурван үйлчилгээ, нэг зам</h2>
-      <p class="lede">Нэгээс нь эхэлнэ. Хэрэгцээ гарахаар дараагийнх руу шилжинэ.</p>
+      <h2>Хэрэгцээндээ тохирохыг сонгоорой</h2>
+      <p class="lede">Үйлчилгээ бүр бие даасан. Аль нь танай байгууллагад тохирохыг хамтдаа тодорхойлно.</p>
     </div>
     <div class="svc">
       <a class="card" href="#infra">
         <span class="step">01</span>
         <h3>Managed Infrastructure</h3>
-        <p>Сервер, өгөгдлийн сангаа өөрсдөө байршуулдаг ч DevOps инженергүй компаниудад. Бид өдөр шөнөгүй хянаж, засвар үйлчилгээг нь хийнэ.</p>
+        <p>Сервер, өгөгдлийн сангаа өөрсдөө байршуулдаг ч дэд бүтэц хариуцдаг инженер (DevOps) байхгүй компаниудад. Мэргэжлийн баг тогтмол хяналт тавьж, засвар үйлчилгээг нь хийнэ.</p>
         <span class="more">Дэлгэрэнгүй →</span>
       </a>
       <a class="card" href="#pipeline">
         <span class="step">02</span>
-        <h3>Engineering Pipeline</h3>
-        <p>Backlog нь хөгжүүлэгчдийнхээ хурдаас түрүүлж өссөн багуудад. Тикетийг тань шалгахад бэлэн pull request болгоно.</p>
+        <h3>Engineering Pipeline<sup class="fnm">2</sup></h3>
+        <p>Backlog нь хөгжүүлэгчдийнхээ хурдаас түрүүлж өссөн багуудад. Танай процессыг судалж, pipeline-ыг түүнд тааруулна. Багийг тань сургаж, төлөвлөлтийн арга барил нэвтрүүлнэ. Pipeline-ын ард манай инженер байнга ажиллана.</p>
         <span class="more">Дэлгэрэнгүй →</span>
       </a>
       <a class="card" href="#pa">
         <span class="step">03</span>
         <h3>Хувийн туслах (PA)<span class="mark">Эхний хэрэглэгчид</span></h3>
-        <p>Мэдээллээ олон системээс цуглуулж цаг алддаг удирдлагуудад. Тайлан, хариулт, анхааруулгыг Slack-д тань хүргэнэ.</p>
+        <p>Танд тусгайлан тохируулсан AI agent<sup class="fnm">3</sup>. Тайлан бэлтгэх, мэдээлэл хайх, анхааруулах ажлыг Slack-аар тань гүйцэтгэнэ.</p>
         <span class="more">Дэлгэрэнгүй →</span>
       </a>
     </div>
-    <p class="path">Эхлээд систем тань тогтвортой ажиллана. Дараа нь хөгжүүлэлт хурдсана. Эцэст нь удирдлагын мэдээлэл өөрөө ирдэг болно.</p>
+    <p class="fn"><sup class="fnm">2</sup> Engineering Pipeline бол танай код, баг, ажлын хэв маягт тусгайлан тааруулсан <i>software factory</i>. Энэ ойлголтын талаар: <a href="https://addyosmani.com/blog/software-factories/" target="_blank" rel="noopener">Addy Osmani — Software Factories</a>.</p>
+    <p class="fn"><sup class="fnm">3</sup> Бид OpenClaw, hermes-agent зэрэг өргөн хэрэглэгддэг open-source agent-уудыг танд тааруулж, нууцлалыг нь хангаж ажиллуулдаг. AI agent-ийн цаана юу байгааг нуухгүй.</p>
   </div>
 </section>
 
@@ -374,7 +396,7 @@ footer a{color:var(--c-od-2)}
   <div class="wrap">
     <div class="sechead">
       <h2>OyunAI Managed Infrastructure</h2>
-      <p class="lede">Сервер, сайт, өгөгдлийн сангаа өөрсдөө байршуулдаг ч тусгай DevOps инженергүй бол бид өдөр шөнөгүй хянаж, асуудлыг эрт барина.</p>
+      <p class="lede">Сервер, сайт, өгөгдлийн сангаа өөрсдөө байршуулдаг ч дэд бүтэц хариуцдаг инженер (DevOps) байхгүй бол мэргэжлийн баг тогтмол хяналт тавьж, асуудлыг эрт илрүүлнэ.</p>
     </div>
 
     <div class="ships">
@@ -436,17 +458,17 @@ footer a{color:var(--c-od-2)}
   <div class="wrap">
     <div class="sechead">
       <h2>OyunAI Engineering Pipeline</h2>
-      <p class="lede">Хөгжүүлэгч нэмж авалгүйгээр backlog-оо урагшлуулаарай. Pipeline-ыг бид ажиллуулж, танай кодонд тааруулж, доголдвол өөрсдөө засна.</p>
+      <p class="lede">Хөгжүүлэгч нэмж авалгүйгээр backlog-оо урагшлуулаарай. Энэ бол tracker-ийн дагалдах жижиг автоматжуулалт биш: танай процесст тааруулсан software factory-г манай инженер байнга ажиллуулж, сайжруулна.</p>
     </div>
 
     <div class="ships">
       <div class="ship">
-        <h3>Танай tracker дээр төлөвлөгөө</h3>
-        <p>Шинэ тикет ирмэгц эрэмбэлээд, хэрхэн хэрэгжүүлэх төлөвлөгөөг тикет дээр нь бичнэ. Тикет ойлгомжгүй бол таамгаар явахгүй — тодруулга асуугаад хүлээнэ.</p>
+        <h3>Эхлээд танай процессыг судална</h3>
+        <p>Дасан зохицох үе шатанд танай баг хэрхэн ажилладгийг судалж, pipeline-ыг түүнд тааруулна. Багийг тань сургаж, ажлыг хэрхэн төлөвлөх арга барил, процессыг хамт нэвтрүүлнэ.</p>
       </div>
       <div class="ship">
-        <h3>Танай repo дээр pull request</h3>
-        <p>Танай конвенцоор код бичиж, танай тестийг давуулаад PR нээнэ. Юуг өөрчилж, юуг шалгаснаа PR дээрээ тайлбарлана.</p>
+        <h3>Даалгавраас pull request хүртэл</h3>
+        <p>Шинэ ажлын даалгавар (ticket)-ыг эрэмбэлж, төлөвлөгөө бичээд, танай конвенцоор код бичиж, тестийг давуулан PR нээнэ. Даалгавар ойлгомжгүй бол таамгаар явахгүй — тодруулга асууна.</p>
       </div>
       <div class="ship">
         <h3>Долоо хоног бүр pipeline-аа сайжруулна</h3>
@@ -454,7 +476,7 @@ footer a{color:var(--c-od-2)}
       </div>
       <div class="ship">
         <h3>Сар бүр гүйцэтгэлийн тайлан</h3>
-        <p>Хийсэн ажил, гарсан асуудал, статистик: хэдэн тикет орж ирсэн, хэдэн PR нээсэн, хэд нь merge болсон, хэр хугацаа зарцуулсан.</p>
+        <p>Хийсэн ажил, гарсан асуудал, статистик: хэдэн даалгавар орж ирсэн, хэдэн PR нээсэн, хэд нь merge болсон, хэр хугацаа зарцуулсан.</p>
       </div>
       <div class="ship">
         <h3>Асуудал гарвал</h3>
@@ -473,7 +495,7 @@ footer a{color:var(--c-od-2)}
       <tbody>
         <tr>
           <td>Assisted</td>
-          <td data-l="Юу хийх вэ">Тикетийг эрэмбэлээд, хэрэгжүүлэх дэлгэрэнгүй төлөвлөгөө бичнэ. Кодыг танай баг бичнэ.</td>
+          <td data-l="Юу хийх вэ">Даалгаврыг эрэмбэлээд, хэрэгжүүлэх дэлгэрэнгүй төлөвлөгөө бичнэ. Кодыг танай баг бичнэ.</td>
           <td data-l="Хүний хяналт">Танай баг хэрэгжүүлээд merge, deploy хийнэ.</td>
         </tr>
         <tr class="reco">
@@ -483,11 +505,16 @@ footer a{color:var(--c-od-2)}
         </tr>
         <tr>
           <td>Governed Autonomy</td>
-          <td data-l="Юу хийх вэ">Production-оос ирсэн дохиог тикет болгоод, засвар хүртэл нь автоматаар хүргэнэ — тохирсон хязгаар дотроо.</td>
+          <td data-l="Юу хийх вэ">Production-оос ирсэн дохиог даалгавар болгоод, засвар хүртэл нь автоматаар хүргэнэ — тохирсон хязгаар дотроо.</td>
           <td data-l="Хүний хяналт">Хязгаарыг та тогтооно. Эрсдэлтэй өөрчлөлт бүрийг хүн шийднэ.</td>
         </tr>
       </tbody>
     </table>
+
+    <div class="trust">
+      <span class="tl">Ашигладаг байгууллагууд</span>
+      <span class="co">Хубилай Тек ХХК <small>— SmartMongol, СӨХ болон хотхоны цогц систем</small></span>
+    </div>
   </div>
 </section>
 
@@ -496,17 +523,20 @@ footer a{color:var(--c-od-2)}
   <div class="wrap">
     <div class="sechead">
       <h2>Хувийн туслах (PA)</h2>
-      <p class="lede">Гүйцэтгэх захиралд зориулсан туслах. Танай Slack дотор ажиллаж, системүүдээс тань мэдээлэл татаж, ажлыг тань бэлтгэж өгнө. Гадагш явах бүх зүйлийг та өөрөө батална.</p>
+      <p class="lede">Энгийн хуваарьт ажил биш — танд тусгайлан тохируулсан хувийн AI agent. Системүүдээс тань мэдээлэл татаж, ажлыг тань бэлтгэж өгнө. Гадагш явах бүх зүйлийг та өөрөө баталгаажуулна.</p>
     </div>
 
     <div class="cols">
       <div>
         <dl>
+          <dt>Таны өгөгдөл таных хэвээр</dt>
+          <dd>Agent танд зориулсан тусдаа орчинд ажиллана. Бид засвар үйлчилгээг нь хийнэ, харин таны өгөгдлийг уншихгүй — энэ зарчмыг гэрээнд тусгана.</dd>
+
           <dt>Танай системүүдтэй холбогдоно</dt>
           <dd>Имэйл, Jira, GitHub, өгөгдлийн сан, сервер. Бизнесийн асуултаа Slack-д бичихэд PA хариултыг эх сурвалжаас нь шууд татаж ирнэ.</dd>
 
-          <dt>Өдөр, долоо хоног бүрийн тайлан</dt>
-          <dd>Борлуулалт, захиалга, гол үзүүлэлтээ өглөө бүр Slack-аасаа уншина. Тайлан бэлтгэхэд хэн нэгэн цаг үрэхгүй.</dd>
+          <dt>Тайлан, урьдчилсан дохио</dt>
+          <dd>Борлуулалт, захиалга, гол үзүүлэлтээ өглөө бүр Slack-аасаа уншина. Захиалга огцом буурах, серверийн нөөц дүүрэх зэрэг өөрчлөлтийг асуухаас тань өмнө хэлнэ.</dd>
 
           <dt>Илгээхээсээ өмнө заавал асууна</dt>
           <dd>Нэхэмжлэх, гэрээ, имэйлийг PA бэлтгэнэ, та уншаад шийднэ. Бусдад хүрэх зүйлийг PA өөрөө хэзээ ч илгээхгүй.</dd>
@@ -514,10 +544,10 @@ footer a{color:var(--c-od-2)}
           <dt>Role бүр өөрийн эрхтэй</dt>
           <dd>Хэн юунд хандахыг та тогтооно. Жишээ нь тайлангийн role зөвхөн өгөгдлийн санг уншина, кодонд хүрэхгүй.</dd>
 
-          <dt>Асуухыг тань хүлээхгүй</dt>
-          <dd>Захиалга өмнөх сараас огцом буурах, серверийн нөөц дүүрэх зэрэг өөрчлөлтийг асуухаас тань өмнө хэлнэ.</dd>
+          <dt>Agent-ийг тань бид арчилна</dt>
+          <dd>Agent-ийг тань шинэчилж, хянаж, засвар үйлчилгээг нь хийнэ. Танд тохиргоо, шинэчлэлийн санаа зовох зүйл үлдэхгүй.</dd>
         </dl>
-        <p class="avail">Эхний хэрэглэгчдээ сонгож байна — сард 3 захирал.</p>
+        <p class="avail">Эхний хэрэглэгчдээ сонгож байна — сард 3 хэрэглэгч.</p>
       </div>
 
       <div class="thread" aria-label="Хувийн туслахтай харилцах жишээ">
@@ -559,13 +589,13 @@ footer a{color:var(--c-od-2)}
 <section id="guards">
   <div class="wrap">
     <div class="sechead">
-      <h2>Хяналтыг эхнээс нь суулгасан</h2>
-      <p class="lede">Автоматжуулалт хаана зогсохыг урьдчилан бичээд танаар батлуулна. Үүний дараа л ажиллуулж эхэлнэ.</p>
+      <h2>LLM-ийн wrapper биш, мэргэжлийн үйлчилгээ</h2>
+      <p class="lede">LLM дээр нимгэн давхарга нэмсэн тоглоом биш. Хяналтыг эхнээс нь суулгана: автоматжуулалт хаана зогсохыг урьдчилан бичээд танаар батлуулж, үүний дараа л ажиллуулж эхэлнэ.</p>
     </div>
     <div class="guards">
       <div class="guard">
         <h3>Merge хийх эрх танд</h3>
-        <p>Танай үндсэн салбарт хүний зөвшөөрөлгүйгээр нэг ч мөр код орохгүй.</p>
+        <p>Таны зөвшөөрөлгүйгээр production систем рүү нэг ч өөрчлөлт орохгүй.</p>
       </div>
       <div class="guard">
         <h3>Эрсдэлээр нь ангилна</h3>
@@ -573,7 +603,7 @@ footer a{color:var(--c-od-2)}
       </div>
       <div class="guard">
         <h3>Бүх үйлдэл ул мөр үлдээнэ</h3>
-        <p>Аль тикет дээр юу хийснийг танай tracker, git түүхээс бүрэн харна. Тайлангийн тоо ч эдгээрээс гардаг.</p>
+        <p>Аль даалгавар дээр юу хийснийг танай tracker, git түүхээс бүрэн харна. Тайлангийн тоо ч эдгээрээс гардаг.</p>
       </div>
       <div class="guard">
         <h3>Зогсоох товчлуур</h3>
@@ -584,14 +614,14 @@ footer a{color:var(--c-od-2)}
 </section>
 
 <!-- ============ FOUNDER ============ -->
-<section class="founder alt" id="founder">
+<section class="founder alt" id="about">
   <div class="wrap">
     <div class="sechead">
-      <h2>Хэн хариуцах вэ</h2>
-      <p class="lede">OyunAI-ийн ажил бүрийн ард нэртэй хүн бий. Асуудал гарвал хэнтэй ярихаа та мэднэ.</p>
+      <h2>Бидний тухай</h2>
+      <p class="lede">OyunAI-ийн ажил бүрийн ард зүгээр AI биш, хариуцлага хүлээх эзэн бий. Асуудал гарвал хэнтэй ярихаа та мэднэ.</p>
     </div>
     <div class="person">
-      <span class="avatar" aria-hidden="true">ЭГ</span>
+      <a class="avatar" href="https://github.com/erkhembayar-gantulga" target="_blank" rel="noopener" aria-label="GitHub профайл"><img src="assets/founder.png" width="88" height="88" alt="Гантулгын Эрхэмбаяр"></a>
       <div>
         <h3 class="name">Гантулгын Эрхэмбаяр</h3>
         <p class="role">Үүсгэн байгуулагч, гүйцэтгэх захирал</p>
@@ -601,7 +631,10 @@ footer a{color:var(--c-od-2)}
           <li>TomYo EdTech-ийг хамтран үүсгэн байгуулж, CTO, R&amp;D-ийн ахлах, гүйцэтгэх захирлаар 7 жил ажилласан.</li>
           <li>Хөгжүүлэлтийн багуудад Scrum, CI/CD, автомат deploy нэвтрүүлсэн.</li>
         </ul>
-        <a class="li" href="https://www.linkedin.com/in/erkhembayar-gantulga" target="_blank" rel="noopener">LinkedIn профайл →</a>
+        <p class="links">
+          <a class="li" href="https://www.linkedin.com/in/erkhembayar-gantulga" target="_blank" rel="noopener">LinkedIn →</a>
+          <a class="li" href="https://github.com/erkhembayar-gantulga" target="_blank" rel="noopener">GitHub →</a>
+        </p>
       </div>
     </div>
   </div>
@@ -619,9 +652,9 @@ footer a{color:var(--c-od-2)}
       <div>
         <ul class="incl">
           <li>Pipeline-ыг танай нэг repo, tracker-т холбож, кодонд тань тааруулна</li>
-          <li>Танай бодит backlog-оос 15–25 тикетийг pipeline-аар гүйлгэнэ</li>
+          <li>Танай бодит backlog-оос 15–25 даалгаврыг pipeline-аар гүйлгэнэ</li>
           <li>Pipeline юунд хүрч болох, юунд болохгүйг бичгээр тохирч, танаар батлуулна</li>
-          <li>Туршилтын тайлан: хэдэн тикет, хэдэн PR, хэдэн хувийг нь хүлээж авсан, хэр хугацаа зарцуулсан</li>
+          <li>Туршилтын тайлан: хэдэн даалгавар, хэдэн PR, хэдэн хувийг нь хүлээж авсан, хэр хугацаа зарцуулсан</li>
         </ul>
         <p class="after">35 дахь өдөр үр дүнгээ хамтдаа дүгнэнэ. Үргэлжлүүлэх үүрэг танд үүсэхгүй. Үргэлжлүүлбэл тохируулгын нэмэлт төлбөр авахгүй.</p>
       </div>
